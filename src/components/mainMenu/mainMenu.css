@@ -1,0 +1,8 @@
+.mainMenu {
+    height: 985px;
+    width: 1920px;
+    background-image: url("https://s3-alpha-sig.figma.com/img/4d39/3515/552ec05b23bca029a735fc146cf0ebff?Expires=1734912000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=UCDaKvuSDQgkGErmKmTJKomFWJ6tyJNgL1BVpd17rU--pdaLFKnqcK6WxbJHoZ0dsybdgHiNVQR8WdO0Z35X2OjMVV37xKFjIMm57o8NRh4~Wj940xSp9B8m2DTRSOgpstiNKPVj-BKGtJcFiuGkrtCKuIRpmRGGKjIHqOJBiBsOsIYrnltxEfwcy6wyaPB3PgsPtYE17MAnm-1fu~Nquc~ViMyAYw9wxHZAN5-Z6bYPCM01Rm~RuopPU-4WMsP763y8ThaPsLoHPUhG0H-NZZFTtUAyZ9OfE5FtM9qAqwJ4obFkjtuoaJR07~-MqIQ-y0n1G2l56GQVROwruNHSAA__");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: inline-block;
+}

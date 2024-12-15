@@ -1,0 +1,19 @@
+
+.bookingMenu {
+    height: 574px;
+    width: 1920px;
+}
+
+.slogan{
+    height: 170px;
+    width: 506px;
+    color: #E5E5E5;
+    font-size: 32px;
+    text-align: justify;
+    margin-left: 200px;
+    margin-top: 400px;
+}
+
+.pslogan{
+    font-weight: 100;
+}
