@@ -2,7 +2,7 @@
 ![CI](https://github.com/<AlexandrYaskevich>/<https://github.com/AlexandrYaskevich/useEffect>/actions/workflows/web.yml/badge.svg)
 
 
-Github Pages: https://AlexandrYaskevich.github.io/useEffect/
+Github Pages: https://AlexandrYaskevich.github.io/
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.

@@ -5,6 +5,7 @@ import SearchTrain from "./searhtrain"
 
 export default function BookingMenu (){
     return (
+
     <div className="bookingMenu">
         <div className="slogan">
           <p className="pslogan">Вся жизнь -</p>
@@ -12,6 +13,7 @@ export default function BookingMenu (){
        </div>
        <SearchTrain />
     </div>
+
     )
 
 }

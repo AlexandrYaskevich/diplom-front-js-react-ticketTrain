@@ -1,0 +1,30 @@
+.howThisWorkBlock {
+    width: 1921px;
+    height: 575px;
+    background: url("https://s3-alpha-sig.figma.com/img/ce7b/1b18/359fa1466fc2860526cab5ac824d0ba5?Expires=1735516800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=DmYk52AuNqMd6hSxkajq5lXY9tFkpm9HmaitpFDK7y3NCjrp9FUBmzYtTgeMmqDM4fJzkUapaimAuTMNBejipIWgBG-RpJp-Q9pP-001KlnGgtJ0Zt2w6o-Rl53SdWDhSW9kpi~Hv1WU37olJPE-kDH5DbOcihay4FLn~QjJyxDL1wrTGQLOQPpHRZSo~gu3JKJ2g-HKEJQ4LOXj6UncKdc~lLRYKvwGeePNFhJc2uXUOwdwEoJwftEfwb~P3Ttvyn0aTXdY17CL6zQvl7xU7b1-32l-KZcmy~FU7QUayHmdZmWTqgAPNE7cXaLAduy1W-93T8ry2p7o~1db8v6v6Q__");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.blockTitle {
+    display: flex;
+    color: white;
+}
+.howThisWorkTitle {
+    font-size: 36px;
+    margin-left: 250px;
+    margin-top: 50px;
+}
+
+
+.linkLeanMore {
+    color: white;
+    margin-left: 750px;
+    margin-top: 40px;
+    background-color: transparent;
+    border: 2px solid #FFFFFF;
+    font-size: 24px;
+    border-radius: 5px;
+    width: 325px;
+    height: 60px;
+}

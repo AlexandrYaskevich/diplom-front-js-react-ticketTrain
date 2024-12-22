@@ -1,6 +1,22 @@
 import "./searchtrain.css"
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { citySlice } from "../../../redux/slice/cityslice";
 
 export default function SearchTrain (){
+    const [cityInput, setCityInput] = useState("");
+    const dispatch = useDispatch();
+    const cities = useSelector((state) => state.cities.cities);
+  
+    const handleSearch = (e) => {
+      setCityInput(e.target.value);
+      if (e.target.value) {
+        dispatch(citySlice(e.target.value));
+      } else {
+        // Если поле ввода пустое, сбрасываем найденные города
+        dispatch(citySlice(""));
+      }
+    };
     return (
     <form className="formSearchTrain">
         <div className="searchTrain">
@@ -10,12 +26,34 @@ export default function SearchTrain (){
             </div>
             <div className="inputsway">
                 <div className="inputfromway">
-                    <input         
-                    type="text"/>
+                <input
+              type="text"
+              placeholder="Откуда"
+              value={cityInput}
+              onChange={handleSearch}
+            />
+                {cities.length > 0 && (
+              <ul>
+                {cities.map((city) => (
+                  <li key={city._id}>{city.name}</li>
+                ))}
+              </ul>
+            )}
                 </div>
                 <div className="inputwhereway">
-                    <input 
-                    type="text"/>
+                <input
+              type="text"
+              placeholder="Куда"
+              value={cityInput}
+              onChange={handleSearch}
+            />
+              {cities.length > 0 && (
+              <ul>
+                {cities.map((city) => (
+                  <li key={city._id}>{city.name}</li>
+                ))}
+              </ul>
+            )}
                 </div>
             </div>
 
@@ -25,11 +63,15 @@ export default function SearchTrain (){
             <div className="inputsway">
                 <div className="inputfromdata">
                     <input         
-                    type="text"/>
+                    type="text"
+                    placeholder="ДД/ММ/ГГ"
+                    />
                 </div>
                 <div className="inputwheredata">
                     <input 
-                    type="text"/>
+                    type="text"
+                    placeholder="ДД/ММ/ГГ"
+                    />
                 </div>
             </div>
 
