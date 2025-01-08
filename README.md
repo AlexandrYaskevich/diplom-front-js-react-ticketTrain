@@ -1,8 +1,8 @@
 
-![CI](https://github.com/<AlexandrYaskevich>/<https://github.com/AlexandrYaskevich/diplom-front-js-react-ticketTrain>/actions/workflows/web.yml/badge.svg)
+![CI](https://github.com/<AlexandrYaskevich>/<https://github.com/AlexandrYaskevich/CardReact>/actions/workflows/web.yml/badge.svg)
 
 
-Github Pages: https://AlexandrYaskevich.github.io/diplom-front-js-react-ticketTrain/
+Github Pages: https://AlexandrYaskevich.github.io/CardReact/
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
