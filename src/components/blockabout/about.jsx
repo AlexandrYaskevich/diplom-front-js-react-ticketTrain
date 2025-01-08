@@ -3,7 +3,7 @@ import "./about.css";
 export default function BlockAbout (){ 
         return (
     
-        <div className="blockabout">
+        <div id="about" className="blockabout">
 
             <div className="header">
                 <h1>О НАС</h1>

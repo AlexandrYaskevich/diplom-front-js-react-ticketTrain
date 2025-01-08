@@ -1,14 +1,23 @@
 import "./navigatorPage.css"
+import { HashLink } from 'react-router-hash-link';
 
 
 export default function NavigatorPage (){
     return (
     <div className="navigatorPage">
         <ul className="navigatorMenu">
-            <li className="about">О нас</li>    
-            <li className="howThisWork">Как это работает</li>
-            <li className="feedbck">Отзывы</li>
-            <li className="contacts">Контакты</li>       
+            <li className="about">
+                <HashLink to='/#about'>О нас</HashLink>
+            </li>    
+            <li className="howThisWork">
+            <HashLink to='/#how'> Как это работает</HashLink>
+            </li>
+            <li className="feedback">
+            <HashLink to='/#feedbcak'>Отзывы</HashLink>
+            </li>
+            <li className="contacts">
+            <HashLink to='/#contacts'>Контакты</HashLink>
+            </li>       
         </ul>
      </div>
     )
