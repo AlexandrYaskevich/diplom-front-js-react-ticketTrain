@@ -2,8 +2,9 @@ import "./App.css";
 import MainMenu from "./components/mainMenu/mainMenu";
 import store from "./redux/store/index"
 import { Provider } from "react-redux";
-import BlockAbout from "./components/mainMenu/blockabout/about";
-import HowThisWork from "./components/mainMenu/blockhowthiswork/howthiswork";
+import BlockAbout from "./components/blockabout/about";
+import HowThisWork from "./components/blockhowthiswork/howthiswork";
+import Feetback from "./components/blockfeedback/blockfeedback"
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <MainMenu/>
         <BlockAbout/>
         <HowThisWork/>
+        <Feetback />
       </div>
 </Provider>
   );

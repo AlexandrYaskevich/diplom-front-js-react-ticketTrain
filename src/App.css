@@ -3,5 +3,7 @@
     font-family: ro;
 }
 .bookingTrain{
-    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 1921px;
+    grid-template-rows: 985px 575px 575px 575px 575px;
 }
