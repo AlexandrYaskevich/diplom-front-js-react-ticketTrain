@@ -1,4 +1,4 @@
-import "./bookingMenu.css"
+import "./bookingmenu.css"
 import SearchTrain from "./searhtrain"
 
 
