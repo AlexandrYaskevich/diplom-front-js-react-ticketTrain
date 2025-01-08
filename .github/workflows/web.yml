@@ -47,7 +47,7 @@ jobs:
     needs: [eslint, test]
 
     environment:
-      name: github-pages
+      name: diplom-front-js-react-ticketTrain
       url: ${{ steps.deployment.outputs.page_url }}
 
     runs-on: ubuntu-latest
