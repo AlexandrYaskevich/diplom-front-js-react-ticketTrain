@@ -11,10 +11,33 @@ export const fetchCities = createAsyncThunk(
   }
 );
 
+export const fetchCitiesFrom = createAsyncThunk(
+  "cities/fetchCitiesFrom",
+  async (name) => {
+    const response = await fetch(
+      `https://students.netoservices.ru/fe-diplom/routes/cities?name=${name}`
+    );
+    const data = await response.json();
+    return data; 
+  }
+);
+
+export const fetchCitiesTo = createAsyncThunk(
+  "cities/fetchCitiesTo",
+  async (name) => {
+    const response = await fetch(
+      `https://students.netoservices.ru/fe-diplom/routes/cities?name=${name}`
+    );
+    const data = await response.json();
+    return data; 
+  }
+);
+
 export const citySlice = createSlice({
   name: "cities",
   initialState: {
-    cities: [],
+    citiesFrom: [],
+    citiesTo: [],
     loading: false,
     error: null,
   },
@@ -25,9 +48,13 @@ export const citySlice = createSlice({
         state.loading = true;
         state.error = null;
       })
-      .addCase(fetchCities.fulfilled, (state, action) => {
+      .addCase(fetchCitiesFrom.fulfilled, (state, action) => {
         state.loading = false;
-        state.cities = action.payload || []; 
+        state.citiesFrom = action.payload; 
+      })
+      .addCase(fetchCitiesTo.fulfilled, (state, action) => {
+        state.loading = false;
+        state.citiesTo = action.payload; 
       })
       .addCase(fetchCities.rejected, (state, action) => {
         state.loading = false;

@@ -1,17 +1,19 @@
 .blockabout {
-    width: 1920px;
+    width: 100vw;
     height: 575px;
     display: inline-block;
     padding: 200px 0px 0px 258px;
-    box-sizing: border-box;
+
 }
 
 .contenttextabout {
     border-left: 8px solid  #FFA800;
+    box-sizing: border-box;
 }
 
 .blockinform{
-    width: 1320px;
+    width: 80%;
+    max-width: 1320px;
     height: 258px;
     padding: 0px;
 }

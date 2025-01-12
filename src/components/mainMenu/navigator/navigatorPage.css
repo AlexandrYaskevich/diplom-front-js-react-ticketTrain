@@ -1,6 +1,6 @@
 .navigatorPage {
     height: 94px;
-    width: 1919px;
+    max-width: 100vw;
     background-color: #292929;
     display: flex;
     justify-content: flex-start;
