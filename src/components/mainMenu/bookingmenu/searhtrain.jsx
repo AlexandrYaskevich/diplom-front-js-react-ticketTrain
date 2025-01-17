@@ -2,6 +2,7 @@ import "./searchtrain.css"
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCitiesFrom, fetchCitiesTo } from "../../../redux/slice/cityslice";
+import MyDatePicker from "../calendar/calenadr";
 
 export default function SearchTrain() {
   const [cityInputFrom, setCityInputFrom] = useState("");
@@ -9,19 +10,34 @@ export default function SearchTrain() {
   const dispatch = useDispatch();
   const citiesFrom = useSelector((state) => state.cities.citiesFrom);
   const citiesTo = useSelector((state) => state.cities.citiesTo);
-  const loading = useSelector((state) => state.cities.loading);
+  const fromloading = useSelector((state) => state.cities.fromloading);
+  const toloading = useSelector((state) => state.cities.toloading);
+  const [showFromCities, setShowFromCities] = useState(false);
+  const [showToCities, setShowToCities] = useState(false);
+
+  const handleSelectCityFrom = (city) => {
+    setCityInputFrom(city);
+    setShowFromCities(false); 
+};
+
+const handleSelectCityTo = (city) => {
+  setCityInputTo(city);
+  setShowToCities(false); 
+};
 
   const handleSearchFrom = (e) => {
     setCityInputFrom(e.target.value);
+    setShowFromCities(true);
     if (e.target.value) {
       dispatch(fetchCitiesFrom(e.target.value));
     } else {
-      // Если поле ввода пустое, сбрасываем найденные города
+      setShowFromCities(false);
       dispatch(fetchCitiesFrom(""));
     }
   };
   const handleSearchTo = (e) => {
     setCityInputTo(e.target.value);
+    setShowToCities(true); 
     if (e.target.value) {
       dispatch(fetchCitiesTo(e.target.value));
     } else {
@@ -45,11 +61,13 @@ export default function SearchTrain() {
               value={cityInputFrom}
               onChange={handleSearchFrom}
             />
-            {loading && <p>Идет загрузка...</p>}
-            {citiesFrom.length > 0 && (
-              <ul>
+            {fromloading && <p>Идет загрузка...</p>}
+            {showFromCities && citiesFrom.length > 0 && (
+              <ul className="listCity">
                 {citiesFrom.map((city) => (
-                  <li key={city._id}>{city.name}</li>
+                  <li className="citiesFrom" key={city._id} onClick={() => handleSelectCityFrom(city.name)}>
+                    {city.name}
+                  </li>
                 ))}
               </ul>
             )}
@@ -62,11 +80,13 @@ export default function SearchTrain() {
               value={cityInputTo}
               onChange={handleSearchTo}
             />
-            {loading && <p>Идет загрузка...</p>}
-            {citiesTo.length > 0 && (
-              <ul>
+            {toloading && <p>Идет загрузка...</p>}
+            {showToCities && citiesTo.length > 0 && (
+              <ul className="listCity">
                 {citiesTo.map((city) => (
-                  <li key={city._id}>{city.name}</li>
+                  <li className="citiesTo" key={city._id} onClick={() => handleSelectCityTo(city.name)}>
+                    {city.name}
+                  </li>
                 ))}
               </ul>
             )}
@@ -79,10 +99,10 @@ export default function SearchTrain() {
 
         <div className="inputsway">
           <div className="inputfromdata">
-            <input type="text" placeholder="Дата" />
+            <MyDatePicker />
           </div>
           <div className="inputwheredata">
-            <input type="text" placeholder="Дата" />
+            <MyDatePicker />
           </div>
         </div>
         

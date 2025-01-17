@@ -1,0 +1,41 @@
+.blockfeedback {
+    height: 985px;
+    width: 100vw;
+    max-width: 1920px;
+}
+
+.headerfeedback{
+    margin-top: 130px;
+    margin-left: 7%;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 42px;
+    text-transform: uppercase;
+    color: #292929;
+}
+
+
+.photopeople {
+    border-radius: 50%;
+    padding-right: 20px;
+}
+
+.listPeople  {
+    display: flex;
+    font-size: 18px;
+
+}
+
+.people{
+    display: flex;
+    width: 40%;
+}
+
+.textfeedbackfrompeople{
+    margin-top: 30px;
+    font-style: italic;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 21px;
+    color: #918F94;
+}

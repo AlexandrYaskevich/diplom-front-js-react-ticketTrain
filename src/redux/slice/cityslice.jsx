@@ -37,28 +37,30 @@ export const citySlice = createSlice({
   name: "cities",
   initialState: {
     citiesFrom: [],
+    fromloading: false,
+    fromerror: null,
     citiesTo: [],
-    loading: false,
-    error: null,
+    toloading: false,
+    toerror: null,
   },
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(fetchCities.pending, (state) => {
-        state.loading = true;
-        state.error = null;
+      .addCase(fetchCitiesFrom.pending, (state) => {
+        state.fromloading = true;
+        state.fromerror = null;
       })
       .addCase(fetchCitiesFrom.fulfilled, (state, action) => {
-        state.loading = false;
+        state.fromloading = false;
         state.citiesFrom = action.payload; 
       })
       .addCase(fetchCitiesTo.fulfilled, (state, action) => {
-        state.loading = false;
+        state.toloading = false;
         state.citiesTo = action.payload; 
       })
-      .addCase(fetchCities.rejected, (state, action) => {
-        state.loading = false;
-        state.error = action.error.message;
+      .addCase(fetchCitiesTo.pending, (state) => {
+        state.toloading = true;
+        state.toerror = null;
       });
   },
 });
