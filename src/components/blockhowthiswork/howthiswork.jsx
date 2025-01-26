@@ -1,5 +1,7 @@
 import "./howthiswork.css"
-
+import online from './image/online.svg';
+import office from "./image/office.svg";
+import travel from "./image/travel.svg";
 
 
 export default function HowThisWork (){
@@ -12,11 +14,22 @@ export default function HowThisWork (){
         </div>
 
         <div className="blocklistsrvice">
-            <ul className="listaboutsrvice">
-                <li></li>
-                <li></li>
-                <li></li>
-            </ul>
+
+            <div className="listaboutsrvice">
+                <div className="serviselist">
+                    <img className="iconlist" src={ online } alt="Удобный заказ на сайте" />
+                    <p>Удобный заказ на сайте</p>
+                </div>
+                <div className="serviselist">                    
+                    <img className="iconlist" src={ office } alt="Нет необходимости ехать в офис" />
+                    <p>Нет необходимости ехать в офис</p>
+                </div>
+                <div className="serviselist">
+                    <img  className="iconlist" src={ travel } alt="Огромный выбор направлений" />
+                    <p>Огромный выбор направлений</p>
+                </div>
+            </div>
+
         </div>
         
 

@@ -20,7 +20,7 @@
 
 .linkLeanMore {
     color: white;
-    margin-left: 750px;
+    margin-left: 550px;
     margin-top: 40px;
     background-color: transparent;
     border: 2px solid #FFFFFF;
@@ -28,4 +28,25 @@
     border-radius: 5px;
     width: 325px;
     height: 60px;
+}
+
+.listaboutsrvice{
+    display: flex;
+    width: 70%;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 24px;
+    color: white;
+}
+.serviselist{
+    width: 25%;
+    align-items: center;
+    text-align: center;
+}
+.iconlist {
+    width: 162px;
+    height: 162px;
 }

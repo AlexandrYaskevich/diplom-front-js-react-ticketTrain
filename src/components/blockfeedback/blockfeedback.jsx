@@ -1,14 +1,16 @@
+import { useState } from "react";
 import { listPeopleFeedBack } from "./listpeople";
 import "./blockfeedback.css"; 
 
-export default function Feetback (){ 
-    const settings = {
-        dots: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-      };
+
+export default function Feedback (){ 
+const [activbutton, setActivbutton] = useState(0);
+
+const handleButtonClick =  (index) => {
+    setActivbutton(index)
+}
+
+const filteredPeople = listPeopleFeedBack.filter((people, index) => index === activbutton || index === activbutton + 1);
     return (
 
     <div id="feedbcak" className="blockfeedback">
@@ -19,8 +21,8 @@ export default function Feetback (){
 
             <div className="listfeedback">  
                 <ul className="listPeople">
-                {   listPeopleFeedBack.map( (people) => (
-                    <li className="people" key={people.id}>
+                {   filteredPeople.map( (people) => (
+                         <li className="people" key={people.id}>
                         <img
                             className="photopeople"
                             src={people.photopeople} 
@@ -31,8 +33,19 @@ export default function Feetback (){
                             <div className="textfeedbackfrompeople">"{people.textfeedbackfrompeople}"</div>
                         </div>
                     </li> 
-                ))}               
+                         
+                )) }               
                 </ul>
+                <div className="buttonscrolls">
+                {Array.from({ length: 5 }).map((_, index) => ( 
+                        <div 
+                            key={index} 
+                            className={`buttonlist ${activbutton === index ? 'active' : ''}`} 
+                            onClick={() => handleButtonClick(index)} 
+                        >
+                        </div>
+                    ))}
+                </div>
 
                 
 

@@ -1,0 +1,124 @@
+.footerblock {
+    height: 520px;
+    width: 100vw;
+    max-width: 1920px;
+    display: flex;
+    background-color: #2d2b2f;
+    color: white;
+}
+
+.contacts, .subscribe {
+    margin-top: 50px;
+    width: 50%;
+    font-size: 30px;
+}
+
+.contacts {
+    margin-left: 150px;
+}
+.telephone, .mail, .skype, .adress {
+    position: relative; 
+    z-index: 1; 
+    margin-left: 70px;
+    margin-top: 30px;
+}
+.contactsphone::before, .contactsmail::before,
+.contactsskype::before, .contactsmap::before {
+
+    content: "";
+    display: block;
+    width: 30px;
+    height: 30px;
+    background-repeat: no-repeat;
+    position: absolute; 
+    left: -70px; 
+    top: 0; 
+    z-index: 0; 
+  }
+
+.contactsphone::before {   
+     background-image: url("./png/phone.png");
+}
+.contactsmail::before {   
+    background-image: url("./png/email.png");
+   }
+.contactsskype::before {   
+    background-image: url("./png/skype.png");
+   }
+.contactsmap::before {   
+    background-image: url("./png/vector.png");
+   }
+
+.subscribelinkslist{
+    display: flex;
+
+}
+
+.subscribelogotext {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    clip: rect(1px, 1px, 1px, 1px);
+  }
+  
+  .subscribelinkyoutube {
+    display: flex;
+    background-repeat: no-repeat;
+    height: 30px;
+    width: 38px;
+    background-image: url("./png/youtube.png");
+  
+    &:hover {
+      background-image: url("./png/hover-youtube.png");
+    }
+  }
+  
+  .subscribelinklinkedin {
+    display: flex;
+    background-repeat: no-repeat;
+    height: 30px;
+    width: 32px;
+    background-image: url("./png/linkedin.png");
+  
+    &:hover {
+      background-image: url("./png/hover-linkedin.png");
+    }
+  }
+  
+  .subscribelinkgoogle {
+    display: flex;
+    background-repeat: no-repeat;
+    height: 30px;
+    width: 47px;
+    background-image: url("./png/gplus.png");
+  
+    &:hover {
+      background-image: url("./png/hover-gplus.png");
+    }
+  }
+  
+  .subscribelinkfacebook {
+    display: flex;
+    background-repeat: no-repeat;
+    height: 30px;
+    width: 14px;
+    background-image: url("./png/facebook.png");
+  
+    &:hover {
+      background-image: url("./png/hover-facebook.png");
+    }
+  }
+  
+  .subscribelinktwitter {
+    display: flex;
+    background-repeat: no-repeat;
+    height: 30px;
+    width: 37px;
+    background-image: url("./png/twitter.png");
+  
+    &:hover {
+      background-image: url("./png/hover-twitter.png");
+    }
+  }
+  
+

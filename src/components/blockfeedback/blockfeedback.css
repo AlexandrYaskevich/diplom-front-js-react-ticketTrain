@@ -1,11 +1,11 @@
 .blockfeedback {
-    height: 985px;
+    height: 575px;
     width: 100vw;
     max-width: 1920px;
 }
 
 .headerfeedback{
-    margin-top: 130px;
+   padding-top: 100px;
     margin-left: 7%;
     font-size: 20px;
     font-weight: 500;
@@ -38,4 +38,24 @@
     font-weight: 300;
     line-height: 21px;
     color: #918F94;
+}
+
+.buttonscrolls {
+    display: flex;
+    box-sizing: border-box;
+    padding-left: 45%;
+    padding-top: 70px;
+    width: 100vw;
+    height: 20px;
+}
+.buttonlist {
+    width: 20px;
+    height: 20px;
+    background: #e5e5e5;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.active {
+    background: #c4c4c4;
+    transform: scale(1.2);
 }

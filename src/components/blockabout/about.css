@@ -2,8 +2,9 @@
     width: 100vw;
     height: 575px;
     display: inline-block;
-    padding: 200px 0px 0px 258px;
-
+    padding: 100px 0px 0px 200px;
+    box-sizing: border-box;
+    border-top: 10px solid #FFA800;
 }
 
 .contenttextabout {

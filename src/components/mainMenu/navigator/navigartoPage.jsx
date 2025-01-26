@@ -15,8 +15,8 @@ export default function NavigatorPage (){
             <li className="feedback">
             <HashLink to='/#feedbcak'>Отзывы</HashLink>
             </li>
-            <li className="contacts">
-            <HashLink to='/#contacts'>Контакты</HashLink>
+            <li className="footer">
+            <HashLink to='/#footer'>Контакты</HashLink>
             </li>       
         </ul>
      </div>

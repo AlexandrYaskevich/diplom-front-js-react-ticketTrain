@@ -5,7 +5,8 @@ import store from "./redux/store/index"
 import { Provider } from "react-redux";
 import BlockAbout from "./components/blockabout/about";
 import HowThisWork from "./components/blockhowthiswork/howthiswork";
-import Feetback from "./components/blockfeedback/blockfeedback"
+import Feedback from "./components/blockfeedback/blockfeedback"
+import Footer from "./components/footer/footer";
 
 function App() {
   return (
@@ -15,8 +16,9 @@ function App() {
         <MainMenu/>
         <BlockAbout/>
         <HowThisWork/>
-        <Feetback />
-    
+        <Feedback />
+        <Footer />
+
   </Provider>
 </BrowserRouter>
   );
