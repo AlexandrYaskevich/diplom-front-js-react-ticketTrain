@@ -1,5 +1,5 @@
 import "./App.css";
-import { Route, Routes, BrowserRouter } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import MainMenu from "./components/mainMenu/mainMenu";
 import store from "./redux/store/index"
 import { Provider } from "react-redux";

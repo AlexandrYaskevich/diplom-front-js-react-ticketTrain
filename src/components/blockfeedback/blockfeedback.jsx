@@ -29,7 +29,7 @@ const filteredPeople = listPeopleFeedBack.filter((people, index) => index === ac
                             alt={`Photo of ${people.namepeople}`}
                         />
                         <div className="textaboutpeople">
-                            <div className="namepeople" style={{fontWeight: "bold"}}>{people.namepeople}</div>
+                            <div className="namepeople" style={{fontWeight: 'bold'}}>{people.namepeople}</div>
                             <div className="textfeedbackfrompeople">"{people.textfeedbackfrompeople}"</div>
                         </div>
                     </li> 
