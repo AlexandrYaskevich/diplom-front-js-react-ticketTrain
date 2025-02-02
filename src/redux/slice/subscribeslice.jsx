@@ -37,7 +37,7 @@ export const subscribeSlice = createSlice({
         state.error = null;
         state.success = false;
       })
-      .addCase(fetchSubscribe.fulfilled, (state, action) => {
+      .addCase(fetchSubscribe.fulfilled, (state, _action) => {
         state.loading = false;
         // if (action.payload.error) {
         //       state.error = action.payload.error;
