@@ -10,13 +10,13 @@ export default function NavigatorPage (){
                 <HashLink to='/#about'>О нас</HashLink>
             </li>    
             <li className="howThisWork">
-            <HashLink to='/#how'> Как это работает</HashLink>
+                <HashLink to='/#how'> Как это работает</HashLink>
             </li>
             <li className="feedback">
-            <HashLink to='/#feedbcak'>Отзывы</HashLink>
+                <HashLink to='/#feedbcak'>Отзывы</HashLink>
             </li>
             <li className="footer">
-            <HashLink to='/#footer'>Контакты</HashLink>
+                <HashLink to='/#footer'>Контакты</HashLink>
             </li>       
         </ul>
      </div>

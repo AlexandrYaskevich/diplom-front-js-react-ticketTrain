@@ -49,9 +49,13 @@
     background-image: url("./png/vector.png");
    }
 
+.subscribelinkstitle {
+  padding-top: 20px;
+}
+
 .subscribelinkslist{
     display: flex;
-
+    padding-left: 0px;
 }
 
 .subscribelogotext {
@@ -60,7 +64,66 @@
     height: 1px;
     clip: rect(1px, 1px, 1px, 1px);
   }
+  .subscribeform {
+    margin-top: 30px;
+  }
   
+  .subscribeformtitle {
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 28px;
+    color: #E5E5E5;
+    margin-bottom: 15px;
+  }
+  
+  .subscribeforminput {
+    width: 447px;
+    height: 60px;
+    background: #FFFFFF;
+    border-radius: 3px;
+    padding-left: 20px;
+    border: none;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 28px;
+  }
+  .subscribeforminput::placeholder {
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 28px;
+    color: #E5E5E5;
+  }
+  
+  .subscribebtn {
+    margin-left: 20px;
+    background-color: inherit;
+    width: 170px;
+    height: 60px;
+    border: 1px solid #FFFFFF;
+    border-radius: 3px;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 28px;
+    text-transform: uppercase;
+    color: #E5E5E5;
+    cursor: pointer;
+    vertical-align: top;
+  
+    &:hover {
+      background-color: #FFCA62;
+      color: #2D2B2F;
+      transition: color 0.3s linear;
+      transition: background-color 0.3s ease-in-out;
+    }
+  
+    &:focus {
+      background-color: #ffffff;
+      color: #2D2B2F;
+    }
+  }
+.subscribeyoutube {
+  padding-left: 0px;
+}
   .subscribelinkyoutube {
     display: flex;
     background-repeat: no-repeat;
@@ -120,5 +183,67 @@
       background-image: url("./png/hover-twitter.png");
     }
   }
-  
 
+  .footerline {
+    display: flex;
+    background-color: #2d2b2f;
+    margin-top: auto;
+    height: 94px;
+    border-top: 1px solid #E5E5E5;
+  }
+  
+  .footerlogo {
+    margin-top: 22px;
+    margin-left: 7%;
+    cursor: pointer;
+  }
+  
+  .footerlogotext {
+    font-size: 36px;
+    font-weight: 900;
+    line-height: 42px;
+    color: #E5E5E5;
+  
+    &:hover {
+      color: #FFA800;
+      transition: color 0.3s linear;
+    }
+  }
+  
+  .footerup {
+    width: 36px;
+    height: 36px;
+    margin-top: 25px;
+    margin-left: 36%;
+    background-image: url('./png/up.png');
+    cursor: pointer;
+  }
+  
+  .footerdate {
+    margin-top: 28px;
+    margin-left: 32%;
+  }
+  
+  .footerdatetext {
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 28px;
+    text-transform: uppercase;
+    color: #E5E5E5;
+  }
+ 
+  .message, .messageerror {
+    position: absolute;
+    text-align: center;
+    border-radius: 10px;
+    width: 447px;
+    border: solid 2px #FFFFFF;
+  }
+  .message {
+    background-color: #FFA800;
+    height: 60px;
+  }
+  .messageerror {
+    background-color: rgba(246, 6, 6, 0.975);
+    height: 70px;
+  }

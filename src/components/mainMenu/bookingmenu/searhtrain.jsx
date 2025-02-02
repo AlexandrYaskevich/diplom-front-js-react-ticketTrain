@@ -2,7 +2,9 @@ import "./searchtrain.css"
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCitiesFrom, fetchCitiesTo } from "../../../redux/slice/cityslice";
+import { useNavigate } from "react-router-dom";
 import MyDatePicker from "../calendar/calenadr";
+
 
 export default function SearchTrain() {
   const [cityInputFrom, setCityInputFrom] = useState("");
@@ -14,6 +16,9 @@ export default function SearchTrain() {
   const toloading = useSelector((state) => state.cities.toloading);
   const [showFromCities, setShowFromCities] = useState(false);
   const [showToCities, setShowToCities] = useState(false);
+  const [dateFrom, setDateFrom] = useState("");
+  const [dateTo, setDateTo] = useState("");
+  const navigate = useNavigate();
 
   const handleSelectCityFrom = (city) => {
     setCityInputFrom(city);
@@ -41,10 +46,28 @@ const handleSelectCityTo = (city) => {
     if (e.target.value) {
       dispatch(fetchCitiesTo(e.target.value));
     } else {
-      // Если поле ввода пустое, сбрасываем найденные города
       dispatch(fetchCitiesTo(""));
     }
   };
+  function changeCity () {
+    const tempCity = cityInputFrom;
+    setCityInputFrom(cityInputTo);
+    setCityInputTo(tempCity);
+  }
+  const handleDateChangeFrom = (date) => {
+    console.log("date from handleDateChangeFrom:", date) /
+    setDateFrom(date);
+  };
+  const handleDateChangeTo = (date) => {
+    console.log("date from handleDateChangeTo:", date) /
+     setDateTo(date)
+  };
+  
+  const handleSearch = (e) => {
+    e.preventDefault();
+     const url = `/search?from=${cityInputFrom}&to=${cityInputTo}&dateFrom=${dateFrom}&dateTo=${dateTo}`
+      navigate(url);
+ };
 
   return (
     <div className="formSearchTrain">
@@ -73,6 +96,8 @@ const handleSelectCityTo = (city) => {
             )}
           </div>
 
+            <button className="butchangecity" type="button" onClick={changeCity}></button>
+
           <div className="inputwhereway">
             <input className="way_where"
               type="text"
@@ -98,17 +123,17 @@ const handleSelectCityTo = (city) => {
         </div>
 
         <div className="inputsway">
-          <div className="inputfromdata">
-            <MyDatePicker />
-          </div>
-          <div className="inputwheredata">
-            <MyDatePicker />
-          </div>
-        </div>
-        
+                  <div className="inputfromdata">
+                      <MyDatePicker onDateChange={handleDateChangeFrom} />
+                  </div>
+                  <div className="inputwheredata">
+                      <MyDatePicker onDateChange={handleDateChangeTo} />
+                  </div>
+              </div>
 
-      </div>
-  
+              <button className="seacrtrainbutton" onClick={handleSearch}>Найти билеты</button>
+          </div>
+      
     </div>
   );
 }

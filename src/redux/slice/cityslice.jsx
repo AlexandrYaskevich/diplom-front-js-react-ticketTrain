@@ -1,16 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-export const fetchCities = createAsyncThunk(
-  "cities/fetchCities",
-  async (name) => {
-    const response = await fetch(
-      `https://students.netoservices.ru/fe-diplom/routes/cities?name=${name}`
-    );
-    const data = await response.json();
-    return data; 
-  }
-);
-
 export const fetchCitiesFrom = createAsyncThunk(
   "cities/fetchCitiesFrom",
   async (name) => {

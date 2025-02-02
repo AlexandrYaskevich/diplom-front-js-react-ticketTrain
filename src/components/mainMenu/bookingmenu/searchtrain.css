@@ -32,7 +32,6 @@
   background-repeat: no-repeat;
   background-position:  right 17px center; 
   background-size: 18px;
-  padding-right: 80px; 
   text-transform: capitalize;
   font-size: 18px;
   font-weight: 400;
@@ -40,12 +39,39 @@
   color: #292929;
   border: none;
   border-radius: 3px;
-  width: 50%;
+  width: 60%;
   height: 60px;
-  padding-left: 20px;
   background-color: #FFFFFF;
+  padding-right: 80px;
+  padding-left: 20px; 
 }
 
+
+.butchangecity {
+    position: relative;
+    border: none;
+    cursor: pointer;
+    margin: auto -10px auto -30px;
+    vertical-align: super;
+    width: 24px;
+    height: 24px;
+    opacity: 0.4;
+    background-color: rgba(41, 41, 41, 0.8);
+  
+    &:hover {
+      opacity: 0.9;
+    }
+}
+.butchangecity::before{
+    background-image: url(./images/direction.png);
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+}
 .inputfromdata input,
 .inputwheredata input{
     background-image: url(./images/calendar.png);
@@ -60,11 +86,11 @@
     color: #292929;
     border: none;
     border-radius: 3px;
-    width: 50%;
+    width: 60%;
     height: 60px;
     padding-left: 20px;
     background-color: #FFFFFF; 
-  
+    z-index: 2;
 }
 
 .inputfromway,
@@ -88,8 +114,31 @@
     padding-left: 20px;
     background-color: #FFFFFF;
     position: absolute;
+    z-index: 3;
 }
 
 .citiesTo, .citiesFrom {
     padding-left: 20px;
+}
+
+.seacrtrainbutton{
+    margin: 49px 20px 40px 360px;
+    width: 270px;
+    height: 60px;
+    background: #ffa800;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 28px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #292929;
+    cursor: pointer;
+    &:hover {
+        background-color: #f5bb47;
+    }
+     &:active {
+        background-color: #FFFFFF;
+    }
 }

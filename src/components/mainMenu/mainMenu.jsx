@@ -6,7 +6,7 @@ import BookingMenu from "./bookingmenu/bookingmenu";
 
 export default function MainMenu() {
     return (
-      <div className="mainMenu">
+      <div id="main" className="mainMenu">
        <Logo />
        <NavigatorPage />
        <BookingMenu />

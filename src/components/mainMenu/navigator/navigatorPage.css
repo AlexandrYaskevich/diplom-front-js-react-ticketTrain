@@ -17,8 +17,14 @@
     list-style: none;
     padding-left: 90px;
     margin-top: 30px;
+    
 }
 a {
     text-decoration: none;
-    color: #E5E5E5 !important;
-   }
+    color: #E5E5E5;
+    &:hover {
+        color: #FFA800;
+        transition: color 0.3s linear;
+      }
+    
+}

@@ -6,8 +6,13 @@
 .logowords{
     padding-top: 15px;
     padding-left: 238px;
-    font-size: 24px;
-    width: 104px;
-    height: 49px;
+    font-size: 36px;
+    font-weight: 900;
+    line-height: 42px;
     color: #E5E5E5;
+  
+    &:hover {
+      color: #FFA800;
+      transition: color 0.3s linear;
+    }
 }
