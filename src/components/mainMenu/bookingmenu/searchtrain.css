@@ -1,8 +1,6 @@
 
 .searchTrain {
     position: absolute;
-    display: flex;
-    flex-direction: column;
     width: 45%;
     height: 70%;
     left: 50%;
@@ -141,4 +139,13 @@
      &:active {
         background-color: #FFFFFF;
     }
+}
+
+.searchTrain_second {
+    display: flex;
+    width: 90%;
+    height: 40%;
+    left: 5%;
+    right: 5%;
+    top: 40%;
 }

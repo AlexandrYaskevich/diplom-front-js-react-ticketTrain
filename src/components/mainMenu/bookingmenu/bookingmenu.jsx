@@ -3,15 +3,16 @@ import SearchTrain from "./searhtrain"
 
 
 
-export default function BookingMenu (){
+export default function BookingMenu ({ clickSearch, setClicksearch }){
     return (
 
     <div className="bookingMenu">
-        <div className="slogan">
+       {!clickSearch  && (<div className="slogan">
           <p className="pslogan">Вся жизнь -</p>
           <h1 className="hslogan">путешествие!</h1>
        </div>
-       <SearchTrain />
+        )}
+       <SearchTrain clickSearch={clickSearch} setClicksearch={setClicksearch}/>
     </div>
 
     )

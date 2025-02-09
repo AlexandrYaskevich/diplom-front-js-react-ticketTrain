@@ -7,3 +7,8 @@
     background-size: cover;
     display: inline-block;
 }
+
+.mainMenu_second {
+    height: 600px;
+    background-image: url("./image/main-search.png");
+}

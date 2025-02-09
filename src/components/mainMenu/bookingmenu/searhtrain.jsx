@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import MyDatePicker from "../calendar/calenadr";
 
 
-export default function SearchTrain() {
+export default function SearchTrain({ clickSearch, setClicksearch }) {
   const [cityInputFrom, setCityInputFrom] = useState("");
   const [cityInputTo, setCityInputTo] = useState("");
   const dispatch = useDispatch();
@@ -19,6 +19,7 @@ export default function SearchTrain() {
   const [dateFrom, setDateFrom] = useState("");
   const [dateTo, setDateTo] = useState("");
   const navigate = useNavigate();
+
 
   const handleSelectCityFrom = (city) => {
     setCityInputFrom(city);
@@ -55,16 +56,19 @@ const handleSelectCityTo = (city) => {
     setCityInputTo(tempCity);
   }
   const handleDateChangeFrom = (date) => {
-    console.log("date from handleDateChangeFrom:", date) /
+    
     setDateFrom(date);
   };
   const handleDateChangeTo = (date) => {
-    console.log("date from handleDateChangeTo:", date) /
+    
      setDateTo(date)
   };
   
   const handleSearch = (e) => {
     e.preventDefault();
+    
+      setClicksearch(true);
+
      const url = `/search?from=${cityInputFrom}&to=${cityInputTo}&dateFrom=${dateFrom}&dateTo=${dateTo}`
       navigate(url);
  };
@@ -72,7 +76,8 @@ const handleSelectCityTo = (city) => {
   return (
     <div className="formSearchTrain">
 
-      <div className="searchTrain">
+      <div className={`searchTrain ${clickSearch ? 'searchTrain_second' : ''}`}>
+      <div className="blockway">
         <div className="headword">
           <span>Направление</span>
         </div>
@@ -116,24 +121,27 @@ const handleSelectCityTo = (city) => {
               </ul>
             )}
           </div>
-        </div>
+         </div>
+      </div>
 
-        <div className="headword">
-          <span>Дата</span>
-        </div>
+        <div className="blockdata">
+         <div className="headword">
+           <span>Дата</span>
+         </div>
 
-        <div className="inputsway">
+           <div className="inputsway">
                   <div className="inputfromdata">
                       <MyDatePicker onDateChange={handleDateChangeFrom} />
                   </div>
                   <div className="inputwheredata">
                       <MyDatePicker onDateChange={handleDateChangeTo} />
                   </div>
-              </div>
+            </div>
 
               <button className="seacrtrainbutton" onClick={handleSearch}>Найти билеты</button>
           </div>
-      
+        </div>
+
     </div>
   );
 }
