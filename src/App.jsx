@@ -13,6 +13,7 @@ import  {BrowserRouter, Routes, Route}  from "react-router-dom";
 function App() {
 
   return (
+    
 <BrowserRouter basename='/diplom-front-js-react-ticketTrain'>
   <Provider store={store}>
    

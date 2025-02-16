@@ -1,53 +1,88 @@
 import "./searchresults.css";
 import React from 'react';
-import { useSearchParams } from 'react-router-dom';
 import { ProgressLine } from "./lineprogress/lineprogres";
-import MyDatePicker from "../mainMenu/calendar/calenadr";
+import DataFrom from "../calendar/dataFrom";
+import DataTo from "../calendar/dataTo";
+
 
 function SearchResults() {
-  const [searchParams] = useSearchParams();
-  const from = searchParams.get("from");
-  const to = searchParams.get("to");
-  const dateFrom = searchParams.get("dateFrom");
-  const dateTo = searchParams.get("dateTo");
 
-  
-  const formatDate = (dateString) => {
-    if (!dateString) return ""; 
-    try {
-      const date = new Date(dateString);
-      return date.toLocaleDateString();
-    } catch (error) {
-      console.error("Error parsing date:", error);
-      return dateString; 
-    }
-  };
 
   return (
     <div className='searchresult'>
       <ProgressLine />
       <div className='leftside'>
            
-              <h3>Дата поездки</h3>
+              <h3 className="textdata">Дата поездки</h3>
                   <div className="fromdata">
-                      <MyDatePicker  value="dateFrom"/>
+                    <DataFrom />        
                   </div>
-              <h3>Дата возвращения</h3>
-                  <div className="wheredata">
-                      <MyDatePicker  />
+              <h3 className="textdata">Дата возвращения</h3>
+                  <div className="wheredata" p>
+                      <DataTo /> 
                   </div>
+
+              <div className="line"></div>
+
+              <div className="filtersofticket">
+
+                  <div className="filter">
+                      <div className="imagefilter__coupe"></div>
+                      <p className="textfilter">Купе</p>
+                      <label className="switch"> 
+                        <input type="checkbox" className="checkbox"/>
+                        <span className="slider round"></span> 
+                      </label>
+                  </div>
+
+                  <div className="filter">
+                      <div className="imagefilter__placcart"></div>
+                      <p className="textfilter">Плацкарт</p>
+                      <label className="switch"> 
+                        <input type="checkbox" className="checkbox"/>
+                        <span className="slider round"></span> 
+                      </label>
+                  </div>
+
+                  <div className="filter">
+                      <div className="imagefilter__seat"></div>
+                      <p className="textfilter">Сидячий</p>
+                      <label className="switch"> 
+                        <input type="checkbox" className="checkbox"/>
+                        <span className="slider round"></span> 
+                      </label>
+                  </div>
+
+                  <div className="filter">
+                      <div className="imagefilter__lux"></div>
+                      <p className="textfilter">Люкс</p>
+                      <label className="switch"> 
+                        <input type="checkbox" className="checkbox"/>
+                        <span className="slider round"></span> 
+                      </label>
+                  </div>
+
+                  <div className="filter">
+                      <div className="imagefilter__wifi"></div>
+                      <p className="textfilter">Wi-fi</p>
+                      <label className="switch"> 
+                        <input type="checkbox" className="checkbox"/>
+                        <span className="slider round"></span>
+                      </label>
+                  </div>
+
+                  <div className="filter">
+                      <div className="imagefilter__express"></div>
+                      <p className="textfilter">Экспресс</p>
+                      <label className="switch"> 
+                        <input type="checkbox" className="checkbox"/>
+                        <span className="slider round"></span>
+                      </label>
+                  </div>
+
+              </div>
               
       </div>
-
-      <p>
-        From: {from}
-        <br />
-        To: {to}
-        <br />
-        Date From: {formatDate(dateFrom)}
-        <br />
-        Date To: {formatDate(dateTo)}
-      </p>
     </div>
   );
 }

@@ -15,7 +15,7 @@ export const ProgressLine = () => {
     
       </div>
 
-       <div class="triangle-right_start"></div> 
+       <div className="triangle-right_start"></div> 
 
       <div className={'line__step-two '}>   
         <div className={'step__number '}>
@@ -24,8 +24,8 @@ export const ProgressLine = () => {
         <div className={'step__text '}>Пассажиры</div>
       </div>
 
-      <div class="triangle-right"></div> 
-      <div class="arrow arrow-right"></div>  
+      <div className="triangle-right"></div> 
+      <div className="arrow arrow-right"></div>  
 
       <div className={'line__step-three '}>
         <div className={'step__number '}>
@@ -34,7 +34,7 @@ export const ProgressLine = () => {
         <div className={'step__text '}>Оплата</div>
       </div>
 
-      <div class="triangle-right"></div> 
+      <div className="triangle-right"></div> 
 
       <div className={'line__step-four '}>
       

@@ -1,9 +1,10 @@
-import "./searchtrain.css"
-import React, { useState } from "react";
+import "./searchtrain.css";
+import React, { useState, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCitiesFrom, fetchCitiesTo } from "../../../redux/slice/cityslice";
 import { useNavigate } from "react-router-dom";
-import MyDatePicker from "../calendar/calenadr";
+import DataFrom from "../../calendar/dataFrom";
+import DataTo from "../../calendar/dataTo";
 
 
 export default function SearchTrain({ clickSearch, setClicksearch }) {
@@ -16,64 +17,74 @@ export default function SearchTrain({ clickSearch, setClicksearch }) {
   const toloading = useSelector((state) => state.cities.toloading);
   const [showFromCities, setShowFromCities] = useState(false);
   const [showToCities, setShowToCities] = useState(false);
-  const [dateFrom, setDateFrom] = useState("");
-  const [dateTo, setDateTo] = useState("");
   const navigate = useNavigate();
+ 
 
-
-  const handleSelectCityFrom = (city) => {
+  // Wrap handleSelectCityFrom with useCallback
+  const handleSelectCityFrom = useCallback((city) => {
     setCityInputFrom(city);
-    setShowFromCities(false); 
-};
+    setShowFromCities(false);
+  }, []);
 
-const handleSelectCityTo = (city) => {
-  setCityInputTo(city);
-  setShowToCities(false); 
-};
+  // Wrap handleSelectCityTo with useCallback
+  const handleSelectCityTo = useCallback((city) => {
+    setCityInputTo(city);
+    setShowToCities(false);
+  }, []);
 
-  const handleSearchFrom = (e) => {
+  // Wrap handleSearchFrom with useCallback
+  const handleSearchFrom = useCallback((e) => {
     setCityInputFrom(e.target.value);
     setShowFromCities(true);
     if (e.target.value) {
       dispatch(fetchCitiesFrom(e.target.value));
     } else {
       setShowFromCities(false);
-      dispatch(fetchCitiesFrom(""));
     }
-  };
-  const handleSearchTo = (e) => {
+  }, [dispatch]);
+
+  // Wrap handleSearchTo with useCallback
+  const handleSearchTo = useCallback((e) => {
     setCityInputTo(e.target.value);
-    setShowToCities(true); 
+    setShowToCities(true);
     if (e.target.value) {
       dispatch(fetchCitiesTo(e.target.value));
     } else {
-      dispatch(fetchCitiesTo(""));
+      setShowToCities(false);
     }
-  };
-  function changeCity () {
-    const tempCity = cityInputFrom;
+  }, [dispatch]);
+
+  // Wrap changeCity with useCallback
+  const changeCity = useCallback(() => {
     setCityInputFrom(cityInputTo);
-    setCityInputTo(tempCity);
-  }
-  const handleDateChangeFrom = (date) => {
-    
-    setDateFrom(date);
-  };
-  const handleDateChangeTo = (date) => {
-    
-     setDateTo(date)
-  };
-  
-  const handleSearch = (e) => {
+    setCityInputTo(cityInputFrom); // Corrected the swap
+  }, [cityInputFrom, cityInputTo]);
+
+  // Wrap handleSearch with useCallback
+  const handleSearch = useCallback((e) => {
     e.preventDefault();
-    
-      setClicksearch(true);
 
-     const url = `/search?from=${cityInputFrom}&to=${cityInputTo}&dateFrom=${dateFrom}&dateTo=${dateTo}`
-      navigate(url);
- };
+    setClicksearch(true);
 
-  return (
+    const url = `/search?from=${cityInputFrom}&to=${cityInputTo}`;
+    navigate(url);
+  }, [navigate, cityInputFrom, cityInputTo, setClicksearch]);
+
+  const handleDateChangeFrom = useCallback(
+    (date) => {
+      dispatch(setDateFrom(date));
+    },
+    [dispatch]
+  );
+
+  const handleDateChangeTo = useCallback(
+    (date) => {
+      dispatch(setDateTo(date));
+    },
+    [dispatch]
+  );
+
+  return(
     <div className="formSearchTrain">
 
       <div className={`searchTrain ${clickSearch ? 'searchTrain_second' : ''}`}>
@@ -131,10 +142,10 @@ const handleSelectCityTo = (city) => {
 
            <div className="inputsway">
                   <div className="inputfromdata">
-                      <MyDatePicker onDateChange={handleDateChangeFrom} />
+                  <DataFrom onDateChange={handleDateChangeFrom} />
                   </div>
                   <div className="inputwheredata">
-                      <MyDatePicker onDateChange={handleDateChangeTo} />
+                  <DataTo onDateChange={handleDateChangeTo} />
                   </div>
             </div>
 
