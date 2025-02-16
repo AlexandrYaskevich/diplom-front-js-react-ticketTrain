@@ -18,7 +18,7 @@ function SearchResults() {
                     <DataFrom />        
                   </div>
               <h3 className="textdata">Дата возвращения</h3>
-                  <div className="wheredata" p>
+                  <div className="wheredata">
                       <DataTo /> 
                   </div>
 

@@ -5,6 +5,7 @@ import { fetchCitiesFrom, fetchCitiesTo } from "../../../redux/slice/cityslice";
 import { useNavigate } from "react-router-dom";
 import DataFrom from "../../calendar/dataFrom";
 import DataTo from "../../calendar/dataTo";
+import { setDateFrom, setDateTo } from '../../../redux/slice/dateSlice';
 
 
 export default function SearchTrain({ clickSearch, setClicksearch }) {
@@ -20,19 +21,19 @@ export default function SearchTrain({ clickSearch, setClicksearch }) {
   const navigate = useNavigate();
  
 
-  // Wrap handleSelectCityFrom with useCallback
+ 
   const handleSelectCityFrom = useCallback((city) => {
     setCityInputFrom(city);
     setShowFromCities(false);
   }, []);
 
-  // Wrap handleSelectCityTo with useCallback
+  
   const handleSelectCityTo = useCallback((city) => {
     setCityInputTo(city);
     setShowToCities(false);
   }, []);
 
-  // Wrap handleSearchFrom with useCallback
+ 
   const handleSearchFrom = useCallback((e) => {
     setCityInputFrom(e.target.value);
     setShowFromCities(true);
@@ -43,7 +44,6 @@ export default function SearchTrain({ clickSearch, setClicksearch }) {
     }
   }, [dispatch]);
 
-  // Wrap handleSearchTo with useCallback
   const handleSearchTo = useCallback((e) => {
     setCityInputTo(e.target.value);
     setShowToCities(true);
@@ -54,13 +54,13 @@ export default function SearchTrain({ clickSearch, setClicksearch }) {
     }
   }, [dispatch]);
 
-  // Wrap changeCity with useCallback
+  
   const changeCity = useCallback(() => {
     setCityInputFrom(cityInputTo);
-    setCityInputTo(cityInputFrom); // Corrected the swap
+    setCityInputTo(cityInputFrom);
   }, [cityInputFrom, cityInputTo]);
 
-  // Wrap handleSearch with useCallback
+  
   const handleSearch = useCallback((e) => {
     e.preventDefault();
 
