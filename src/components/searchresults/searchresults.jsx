@@ -9,6 +9,7 @@ import { useState } from "react";
 function SearchResults() {
   const [sliderValueMin, setSliderValueMin] = useState(1920); 
   const [sliderValueMax, setSliderValueMax] = useState(7000); 
+  const [activeButton, setActiveButton] = useState(false);
 
   const handleSliderChangeMin = (event) => {
     const value = parseInt(event.target.value, 10);
@@ -25,6 +26,10 @@ const handleSliderChangeMax = (event) => {
 };
 const minPercentage = ((sliderValueMin - 1920) / (7000 - 1920)) * 100;
 const widthPercentage = ((sliderValueMax - sliderValueMin) / (7000 - 1920)) * 100;
+
+const handleShowTime = () => {
+    setActiveButton(true);
+}
 
   return (
     <div className='searchresult'>
@@ -127,20 +132,29 @@ const widthPercentage = ((sliderValueMax - sliderValueMin) / (7000 - 1920)) * 10
                           value={sliderValueMax}
                           onChange={handleSliderChangeMax}
                            />
-                                   <div
-            className="ant-slider-track ant-slider-track-1"
-            style={{
-              left: `${minPercentage}%`,
-              width: `${widthPercentage}%`,
-            }}
-          />
+                      <div
+                          className="ant-slider-track ant-slider-track-1"
+                          style={{
+                            left: `${minPercentage}%`,
+                            width: `${widthPercentage}%`,
+                          }}
+                        />
                         </div>
                         <div className="spans">
                           <span className="slider-valuemin">{sliderValueMin}</span>
                           <span className="slider-valuemax">{sliderValueMax}</span>
                         </div>
                      
-              </div>
+                </div>
+
+                <div className="line"></div>
+
+                  <div className="totime">
+                    <div className="imagebutton"></div>
+                    <h2 className="totext">Туда</h2>
+                    <div className={activeButton ? 'btnclose' : 'btnshow'} onClick={handleShowTime}></div>
+                  </div>
+                        
       </div>
     </div>
   );
