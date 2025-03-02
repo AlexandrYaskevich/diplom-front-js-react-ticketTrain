@@ -1,15 +1,20 @@
 .searchresult {
   background-color: rgb(249, 246, 246);
 }
-.leftside {
+.leftside, .leftsidemax {
     background-color: #3e3c41;
     display: block;
     width: 300px;
-    height: 1000px;
     margin-left: 40px;
     color: #E5E5E5;
     font-size: 24px;
-    
+    position: relative;
+}
+.leftside {
+  height: 950px;
+}
+.leftsidemax {
+  height: 1300px;
 }
 
 .textdata {
@@ -242,15 +247,18 @@
   height: 20px;
 }
 
-.totime {
+.totime,
+.backtime {
   display: flex;
 }
-.totext {
-  font-size: 24px;
+
+.totext,
+.backtext {
+  font-size: 20px;
   margin-top: 18px;
 }
-.imagebutton {
-  background-image: url(./image/Subtract.png);
+.imagebutton,
+.backimagebutton {
   width: 22px;
   height: 22px;
   margin: 20px 35px 20px;
@@ -258,19 +266,197 @@
   background-repeat: no-repeat;
   border-radius: 5px;
 }
+.imagebutton {
+  background-image: url(./image/Subtract.png);
+}
+.backimagebutton{ 
+  background-image: url(./image/Subtract-back.png);
+}
 
 
-.btnshow, .btnclose {
-  margin-left: 100px;
+.btnshow, .btnclose,
+.backbtnshow, .backbtnclose {
   margin-top: 20px;
   width: 20px;
   height: 20px;
   background-position: center;
   background-repeat: no-repeat;
 }
-.btnshow {
+.btnshow, .btnclose {
+  margin-left: 100px;
+}
+.backbtnshow, .backbtnclose {
+  margin-left: 59px;
+}
+.btnshow, .backbtnshow {
   background-image: url(./image/show-up.png);
 }
-.btnclose {
+.btnclose, .backbtnclose {
   background-image: url(./image/show-down.png);
 }
+
+
+.blocktimeto, .blocktimetoBack,
+.blocktimeEnd, .blocktimeEndBack {
+  display: block;
+}
+.blocktimeEndBack, .blocktimetoBack { 
+    display: block;
+    height: auto; 
+}
+
+
+.textTimeTo,
+.textTimeEnd, 
+.textTimeToBack,
+.textTimeEndBack {
+  font-size: 20px;
+  margin-left: 20px;
+}
+.textTimeEnd,.textTimeEndBack {
+  margin-left: 120px;
+  margin-top: 20px;
+}
+
+.timeTo,
+.timeEnd,
+.timeToBack,
+.timeEndBack {
+  position: relative;
+  width: 260px;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.rangetimeminTo,
+.rangetimemaxTo,
+.rangetimeminToBack,
+.rangetimemaxToBack {
+  appearance: none;
+  position: absolute;
+  width: 100%;
+  height: 10px;
+  border: solid 1px white;
+  border-radius: 5px;
+  outline: none;
+  background: transparent;
+  pointer-events: auto; 
+}
+
+.rangetimeminTo::-webkit-slider-thumb,
+.rangetimemaxTo::-webkit-slider-thumb,
+.rangetimeminToBack::-webkit-slider-thumb,
+.rangetimemaxToBack::-webkit-slider-thumb  {
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  background: white;
+  cursor: pointer;
+  border: none;
+  border-radius: 50%;
+  position: relative;
+  pointer-events: auto; 
+  z-index: 3;
+}
+
+.spanstimeto,
+.spanstimetoBack {
+  display: flex;
+  justify-content: space-between;
+}
+
+.slider-valuemintimeto,
+.slider-valuemaxtimemin,
+.slider-valuemintimetoBack,
+.slider-valuemaxtimeminBack {
+  display: block;
+  text-align: center;
+  font-size: 16px;
+  color: white;
+  margin-top: 15px;
+}
+
+.ant-slider-tracktimeto,
+.ant-slider-tracktimetoBack {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 10px;
+  width: 0%;
+  background-color: #ffa800;
+  border-radius: 5px;
+  transition: all 0.2s linear;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.timeEnd,
+.timeEndBack  {
+  position: relative;
+  width: 260px;
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+.rangetimeminEnd,
+.rangetimemaxEnd,
+.rangetimeminEndBack,
+.rangetimemaxEndBack {
+  appearance: none;
+  position: absolute;
+  width: 100%;
+  height: 10px;
+  border: solid 1px white;
+  border-radius: 5px;
+  outline: none;
+  background: transparent;
+  pointer-events: auto; 
+}
+
+.rangetimeminEnd::-webkit-slider-thumb,
+.rangetimemaxEnd::-webkit-slider-thumb,
+.rangetimeminEndBack::-webkit-slider-thumb,
+.rangetimemaxEndBack::-webkit-slider-thumb {
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  background: white;
+  cursor: pointer;
+  border: none;
+  border-radius: 50%;
+  position: relative;
+  pointer-events: auto; 
+  z-index: 3;
+}
+
+.spanstimeEnd,
+.spanstimeEndBack {
+  display: flex;
+  justify-content: space-between;
+}
+
+.slider-valuemintimeEnd,
+.slider-valuemaxtimeminEnd,
+.slider-valuemintimeEndBack,
+.slider-valuemaxtimeminEndBack {
+  display: block;
+  text-align: center;
+  font-size: 16px;
+  color: white;
+  margin-top: 15px;
+}
+
+.ant-slider-tracktimeEnd,
+.ant-slider-tracktimeEndBack {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 10px;
+  width: 0%;
+  background-color: #ffa800;
+  border-radius: 5px;
+  transition: all 0.2s linear;
+  z-index: 2;
+  pointer-events: none;
+}
+
