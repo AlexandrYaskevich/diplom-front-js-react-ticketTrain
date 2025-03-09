@@ -6,13 +6,13 @@ import DataTo from "../calendar/dataTo";
 import { useState } from "react";
 import LastTickets  from './lasttickets.jsx'
 import Tickets from "./resulttickets.jsx";
-import { useSearchParams } from 'react-router-dom';
-import { setDateTo, setDateFrom } from '../../redux/slice/dateSlice';
+/** import { useSearchParams } from 'react-router-dom'; */
+
 
 function SearchResults() {
-  const [searchParams] = useSearchParams();
+  /**const [searchParams] = useSearchParams();
   const fromCityId = searchParams.get('from');
-  const toCityId = searchParams.get('to');
+  const toCityId = searchParams.get('to');  **/
   const [sliderValueMin, setSliderValueMin] = useState(1920); 
   const [sliderValueMax, setSliderValueMax] = useState(7000); 
   const [sliderTimeMinTo, setSliderTimeMinTo] = useState(0); 
@@ -107,11 +107,11 @@ const handleShowTimeBack = () => {
   setActiveButtonBack(!activeButtonBack);
 }
 
-const searchParamsForTickets = {
+/**const searchParamsForTickets = {
   from_city_id: fromCityId,
   to_city_id: toCityId,
-  date_start: setDateFrom,
-  date_end: setDateTo,
+  date_start: null,
+  date_end: null,
   have_second_class: activeCoupe, 
   have_first_class: activeLux,
   have_third_class: activePlaccart,
@@ -123,8 +123,8 @@ const searchParamsForTickets = {
   start_departure_hour_from: sliderTimeMinTo,
   start_departure_hour_to: sliderTimeMaxTo,
 };
-console.log("searchParams:", setDateFrom)
-console.log("searchParams:", setDateTo)
+console.log("searchParams:", searchParams.date_start)  **/ 
+
 
   return (
     <div className='searchresult'>
