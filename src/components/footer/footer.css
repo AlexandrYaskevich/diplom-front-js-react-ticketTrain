@@ -1,3 +1,4 @@
+
 .footerblock {
     height: 520px;
     width: 100vw;
@@ -56,8 +57,12 @@
 .subscribelinkslist{
     display: flex;
     padding-left: 0px;
+    list-style: none;
 }
-
+.listsubscribeimage, .subscribeyoutube {
+  margin-right: 50px;
+  margin-top: 20px;
+}
 .subscribelogotext {
     position: absolute;
     width: 1px;

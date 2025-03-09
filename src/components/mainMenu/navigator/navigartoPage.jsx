@@ -18,7 +18,7 @@ export default function NavigatorPage ({setClicksearch}){
             <li className="feedback" onClick={handleClick}>
                 <HashLink to='/#feedbcak'>Отзывы</HashLink>
             </li>
-            <li className="footer" onClick={handleClick}>
+            <li className="footer_fornavigate" onClick={handleClick}>
                 <HashLink to='/#footer'>Контакты</HashLink>
             </li>       
         </ul>

@@ -1,0 +1,73 @@
+.listoftickets{
+    margin-top: 50px;
+    margin-left: 40px;
+}
+.textlasttickets {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+.last__list-item_tickets{
+    list-style: none;
+    border: 1px solid #C4C4C4;
+    box-shadow:  5px 5px 10px rgba(0, 0, 0, 0.2);;
+    width: 300px;
+    background-color: #FFFFFF;
+    margin-top: 20px;
+}
+.listoftickets:last-child {
+    margin-bottom: 50px;
+}
+.route__from-to{
+    display: flex;
+    margin: 15px 10px;
+}
+
+.route__to{
+    margin-left: auto;
+}
+
+.route__city-text{
+    color: #2D2B2F;
+    text-transform: capitalize;
+    font-size: 20px;
+    left: 0px;
+}
+.route__station-text{
+    color: #E5E5E5;
+}
+.route__facilities-price{
+    display: flex;
+    margin-top: 50px;
+}
+.route__facilities {
+    background-image: url(./image/facilities.png);
+    width: 100px;
+    height: 22px;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-right: auto;
+}
+
+.route__start-price{
+    display: flex;
+    margin-right: 10px;
+    margin-bottom: 15px;
+}
+.price__start-text{
+    color: #E5E5E5;
+    margin-right: 10px;
+    margin-top: 15px;
+}
+.price__start-number{
+    font-size: 32px;
+    color: #ffa800;
+    font-weight: 600;
+}
+.sign__rub{
+    background-image: url(./image/sign.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 40px;
+    height: 32px;
+}

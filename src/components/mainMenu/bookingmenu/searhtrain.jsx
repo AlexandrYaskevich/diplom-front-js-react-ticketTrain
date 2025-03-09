@@ -11,6 +11,8 @@ import { setDateFrom, setDateTo } from '../../../redux/slice/dateSlice';
 export default function SearchTrain({ clickSearch, setClicksearch }) {
   const [cityInputFrom, setCityInputFrom] = useState("");
   const [cityInputTo, setCityInputTo] = useState("");
+  const [selectedCityFromId, setSelectedCityFromId] = useState(null);
+  const [selectedCityToId, setSelectedCityToId] = useState(null);
   const dispatch = useDispatch();
   const citiesFrom = useSelector((state) => state.cities.citiesFrom);
   const citiesTo = useSelector((state) => state.cities.citiesTo);
@@ -23,17 +25,19 @@ export default function SearchTrain({ clickSearch, setClicksearch }) {
 
  
   const handleSelectCityFrom = useCallback((city) => {
-    setCityInputFrom(city);
+    setCityInputFrom(city.name);
+    setSelectedCityFromId(city._id); 
     setShowFromCities(false);
   }, []);
 
   
   const handleSelectCityTo = useCallback((city) => {
-    setCityInputTo(city);
+    setCityInputTo(city.name);
+    setSelectedCityToId(city._id);
     setShowToCities(false);
   }, []);
 
- 
+
   const handleSearchFrom = useCallback((e) => {
     setCityInputFrom(e.target.value);
     setShowFromCities(true);
@@ -63,12 +67,10 @@ export default function SearchTrain({ clickSearch, setClicksearch }) {
   
   const handleSearch = useCallback((e) => {
     e.preventDefault();
-
     setClicksearch(true);
-
-    const url = `/search?from=${cityInputFrom}&to=${cityInputTo}`;
+    const url = `/search?from=${selectedCityFromId}&to=${selectedCityToId}`;
     navigate(url);
-  }, [navigate, cityInputFrom, cityInputTo, setClicksearch]);
+  }, [navigate, selectedCityFromId, selectedCityToId, setClicksearch]);
 
   const handleDateChangeFrom = useCallback(
     (date) => {
@@ -104,7 +106,7 @@ export default function SearchTrain({ clickSearch, setClicksearch }) {
             {showFromCities && citiesFrom.length > 0 && (
               <ul className="listCity">
                 {citiesFrom.map((city) => (
-                  <li className="citiesFrom" key={city._id} onClick={() => handleSelectCityFrom(city.name)}>
+                  <li className="citiesFrom" key={city._id} onClick={() => handleSelectCityFrom(city)}>
                     {city.name}
                   </li>
                 ))}
@@ -125,7 +127,7 @@ export default function SearchTrain({ clickSearch, setClicksearch }) {
             {showToCities && citiesTo.length > 0 && (
               <ul className="listCity">
                 {citiesTo.map((city) => (
-                  <li className="citiesTo" key={city._id} onClick={() => handleSelectCityTo(city.name)}>
+                  <li className="citiesTo" key={city._id} onClick={() => handleSelectCityTo(city)}>
                     {city.name}
                   </li>
                 ))}

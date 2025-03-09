@@ -13,10 +13,12 @@
     justify-content: flex-start;
     padding-left: 168px;
 }
-.ul, li{
+.navigatorMenu, .about,
+.howThisWork, .feedback, .footer_fornavigate {
     list-style: none;
     padding-left: 90px;
-    margin-top: 30px;
+    margin-top: auto;
+    margin-bottom: auto;
     
 }
 a {

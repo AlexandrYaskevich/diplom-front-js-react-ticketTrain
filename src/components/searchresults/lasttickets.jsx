@@ -1,6 +1,8 @@
+import "./lasttickets.css";
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { fetchLastTickets, selectLastTicketsState } from "../../redux/slice/ticketslastslice";
+import { v4 as uuidv4 } from 'uuid';
 
 const LastTickets = () => {
     const { tickets, loading, error } = useSelector(selectLastTicketsState);
@@ -8,30 +10,29 @@ const LastTickets = () => {
     useEffect(() => {
         dispatch(fetchLastTickets());
     }, [dispatch]);
-    console.log("Tickets in LastTickets:", tickets); // Check tickets after useSelector
-
-    if (loading === 'pending') { // Adapt the loading state check to your actual state
-        return <div>Loading...</div>;
+    
+    if (loading === 'pending') {
+        return <div>Идет поиск</div>;
     }
 
     if (error) {
-        return <div>Error: {error}</div>;
+        return <div>Произошла непредвиденная ошибка: {error}</div>;
     }
    return (
         <div className="listoftickets">
+            <h1 className="textlasttickets">ПОСЛЕДНИЕ БИЛЕТЫ</h1>
             {tickets && tickets.length > 0 ? (
                 tickets.map((elem) => {
-                    console.log("Current elem in map:", elem); // Check each element
                     return (
-                        <li className='last__list-item' key={elem.id}> {/*Use an unique ID to avoid re-renders*/}
+                        <li className='last__list-item_tickets' key={uuidv4()}> 
                             <div className='route__from-to'>
                                 <div className='route__from'>
                                     <h4 className='route__city-text'>{elem.departure.from.city.name}</h4>
-                                    <p className='route__station-text'>{elem.departure.from.railway_station_name} вокзал</p>
+                                    <p className='route__station-text'>{elem.departure.from.railway_station_name}</p>
                                 </div>
                                 <div className='route__to'>
                                     <h4 className='route__city-text'>{elem.departure.to.city.name}</h4>
-                                    <p className='route__station-text'>{elem.departure.to.railway_station_name} вокзал</p>
+                                    <p className='route__station-text'>{elem.departure.to.railway_station_name}</p>
                                 </div>
                             </div>
                             <div className='route__facilities-price'>

@@ -98,22 +98,22 @@ export default function Footer (){
                         <span className='subscribelogotext'>youtube</span>
                         </a>
                     </li>
-                    <li>
+                    <li className="listsubscribeimage">
                         <a className='subscribelinklinkedin' target="_blank" href="#0">
                         <span className='subscribelogotext'>linkedin</span>
                         </a>
                     </li>
-                    <li>
+                    <li className="listsubscribeimage">
                         <a className='subscribelinkgoogle' target="_blank" href="#0">
                         <span className='subscribelogotext'>googleplus</span>
                         </a>
                     </li>
-                    <li>
+                    <li  className="listsubscribeimage">
                         <a className='subscribelinkfacebook' target="_blank" href="#0">
                         <span className='subscribelogotext'>facebook</span>
                         </a>
                     </li>
-                    <li>
+                    <li  className="listsubscribeimage">
                         <a className='subscribelinktwitter' target="_blank" href="#0">
                         <span className='subscribelogotext'>twitter</span>
                         </a>

@@ -5,8 +5,14 @@ import DataFrom from "../calendar/dataFrom";
 import DataTo from "../calendar/dataTo";
 import { useState } from "react";
 import LastTickets  from './lasttickets.jsx'
+import Tickets from "./resulttickets.jsx";
+import { useSearchParams } from 'react-router-dom';
+import { setDateTo, setDateFrom } from '../../redux/slice/dateSlice';
 
 function SearchResults() {
+  const [searchParams] = useSearchParams();
+  const fromCityId = searchParams.get('from');
+  const toCityId = searchParams.get('to');
   const [sliderValueMin, setSliderValueMin] = useState(1920); 
   const [sliderValueMax, setSliderValueMax] = useState(7000); 
   const [sliderTimeMinTo, setSliderTimeMinTo] = useState(0); 
@@ -19,6 +25,13 @@ function SearchResults() {
   const [sliderTimeMaxEndBack, setSliderTimeMaxEndBack] = useState(1440);
   const [activeButton, setActiveButton] = useState(false);
   const [activeButtonBack, setActiveButtonBack] = useState(false);
+  const [activeCoupe, setActiveCoupe] = useState(false);
+  const [activePlaccart, setActivePlaccart] = useState(false);
+  const [activeSeat, setActiveSeat] = useState(false);
+  const [activeLux, setActiveLux] = useState(false);
+  const [activeWifi, setActiveWifi] = useState(false);
+  const [activeExpress, setActiveExpress] = useState(false);
+
 
   const handleSliderChangeMin = (event) => {
     const value = parseInt(event.target.value, 10);
@@ -94,10 +107,30 @@ const handleShowTimeBack = () => {
   setActiveButtonBack(!activeButtonBack);
 }
 
+const searchParamsForTickets = {
+  from_city_id: fromCityId,
+  to_city_id: toCityId,
+  date_start: setDateFrom,
+  date_end: setDateTo,
+  have_second_class: activeCoupe, 
+  have_first_class: activeLux,
+  have_third_class: activePlaccart,
+  have_fourth_class: activeSeat,
+  have_wifi: activeWifi,
+  have_express: activeExpress,
+  price_from: sliderValueMin,
+  price_to: sliderValueMax,
+  start_departure_hour_from: sliderTimeMinTo,
+  start_departure_hour_to: sliderTimeMaxTo,
+};
+console.log("searchParams:", setDateFrom)
+console.log("searchParams:", setDateTo)
+
   return (
     <div className='searchresult'>
       <ProgressLine />
-      <LastTickets />
+      <div className="twopart">
+      <div className="leftpart">
       <div className={!activeButton && !activeButtonBack ? 'leftside': 'leftsidemax'} >
           
               <h3 className="textdata">Дата поездки</h3>
@@ -117,7 +150,10 @@ const handleShowTimeBack = () => {
                       <div className="imagefilter__coupe"></div>
                       <p className="textfilter">Купе</p>
                       <label className="switch"> 
-                        <input type="checkbox" className="checkbox"/>
+                        <input      type="checkbox" 
+                                    className="checkbox" 
+                                    checked={activeCoupe}
+                                    onChange={(e) => setActiveCoupe(e.target.checked)}/>
                         <span className="slider round"></span> 
                       </label>
                   </div>
@@ -126,7 +162,10 @@ const handleShowTimeBack = () => {
                       <div className="imagefilter__placcart"></div>
                       <p className="textfilter">Плацкарт</p>
                       <label className="switch"> 
-                        <input type="checkbox" className="checkbox"/>
+                      <input      type="checkbox" 
+                                    className="checkbox" 
+                                    checked={activePlaccart}
+                                    onChange={(e) => setActivePlaccart(e.target.checked)}/>
                         <span className="slider round"></span> 
                       </label>
                   </div>
@@ -135,7 +174,10 @@ const handleShowTimeBack = () => {
                       <div className="imagefilter__seat"></div>
                       <p className="textfilter">Сидячий</p>
                       <label className="switch"> 
-                        <input type="checkbox" className="checkbox"/>
+                      <input      type="checkbox" 
+                                    className="checkbox" 
+                                    checked={activeSeat}
+                                    onChange={(e) => setActiveSeat(e.target.checked)}/>
                         <span className="slider round"></span> 
                       </label>
                   </div>
@@ -144,7 +186,10 @@ const handleShowTimeBack = () => {
                       <div className="imagefilter__lux"></div>
                       <p className="textfilter">Люкс</p>
                       <label className="switch"> 
-                        <input type="checkbox" className="checkbox"/>
+                      <input      type="checkbox" 
+                                    className="checkbox" 
+                                    checked={activeLux}
+                                    onChange={(e) => setActiveLux(e.target.checked)}/>
                         <span className="slider round"></span> 
                       </label>
                   </div>
@@ -153,7 +198,10 @@ const handleShowTimeBack = () => {
                       <div className="imagefilter__wifi"></div>
                       <p className="textfilter">Wi-fi</p>
                       <label className="switch"> 
-                        <input type="checkbox" className="checkbox"/>
+                      <input      type="checkbox" 
+                                    className="checkbox" 
+                                    checked={activeWifi}
+                                    onChange={(e) => setActiveWifi(e.target.checked)}/>
                         <span className="slider round"></span>
                       </label>
                   </div>
@@ -162,7 +210,10 @@ const handleShowTimeBack = () => {
                       <div className="imagefilter__express"></div>
                       <p className="textfilter">Экспресс</p>
                       <label className="switch"> 
-                        <input type="checkbox" className="checkbox"/>
+                      <input      type="checkbox" 
+                                    className="checkbox" 
+                                    checked={activeExpress}
+                                    onChange={(e) => setActiveExpress(e.target.checked)}/>
                         <span className="slider round"></span>
                       </label>
                   </div>
@@ -361,6 +412,12 @@ const handleShowTimeBack = () => {
                       </div>}
                       
                
+          </div>
+            <LastTickets />
+          </div>
+          <div className="rightpart">
+            <Tickets />
+          </div>
       </div>
     </div>
   );

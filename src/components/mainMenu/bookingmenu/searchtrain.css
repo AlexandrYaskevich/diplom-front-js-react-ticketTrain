@@ -8,7 +8,13 @@
     background: #292929CC;
 }
 
-
+.twopart{
+    display: flex;
+}
+.rightpart {
+    margin-top: 55px;
+    margin-left: 100px;
+}
 
 .headword {
     font-size: 24px;
@@ -113,6 +119,7 @@
     background-color: #FFFFFF;
     position: absolute;
     z-index: 3;
+    list-style: none;
 }
 
 .citiesTo, .citiesFrom {

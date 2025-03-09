@@ -9,7 +9,10 @@ export const fetchLastTickets = createAsyncThunk(
          );
         const data = await response.json();
         const listlasttickets = data.map( el=> ({
-                'el': el })
+            id: el.id,       
+            departure: el.departure,   
+            arrival: el.arrival,      
+            min_price: el.min_price, })
         ); 
     return listlasttickets;  
     }
@@ -19,26 +22,26 @@ export const fetchLastTickets = createAsyncThunk(
 const lastTicketsSlice = createSlice({
     name: "lastTickets", 
     initialState: {
-        tickets: [],       
-        loading: false,   
-        error: false,       
+        tickets: [],
+        loading: 'idle', 
+        error: null,       
     },
     reducers: {  },
     extraReducers: (builder) => {
         builder
-            .addCase(fetchLastTickets.pending, (state) => {
-                state.loading = true;
-                state.error = false;
-            })
-            .addCase(fetchLastTickets.fulfilled, (state, action) => {
-                state.loading = true;
-                state.error = false;
-                state.tickets = action.payload; 
-            })
-            .addCase(fetchLastTickets.rejected, (state) => {
-                state.loading = true;
-                state.error = false;
-            });
+        .addCase(fetchLastTickets.pending, (state) => {
+            state.loading = 'pending';
+            state.error = null; 
+        })
+        .addCase(fetchLastTickets.fulfilled, (state, action) => {
+            state.loading = 'succeeded';
+            state.tickets = action.payload;
+            state.error = null; 
+        })
+        .addCase(fetchLastTickets.rejected, (state, action) => {
+            state.loading = 'failed';
+            state.error = action.error.message; 
+        });
     },
 })
 export const selectLastTicketsState = (state) => state.lastTickets;
