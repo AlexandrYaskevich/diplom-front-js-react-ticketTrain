@@ -1,0 +1,29 @@
+.ticket {
+    display: flex;
+    width: 959px;
+    height: 351px;
+    border: 1px solid #C4C4C4;
+    box-shadow:  5px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.nameTrainPart {
+    background-color: #e4e0e9;
+    width: 20%;
+    height: 100%;
+}
+.trainicon {
+    background-image: url(./image/train.png);
+    width: 70px;
+    height: 70px;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+.timeTrainPart {
+    width: 50%;
+    height: 100%;
+}
+.seatsTrainPart{
+    width: 30%;
+    height: 100%;
+}

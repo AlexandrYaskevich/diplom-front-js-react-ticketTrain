@@ -16,6 +16,8 @@ function SearchResults() {
   const [searchParams] = useSearchParams();
   const fromCityId = searchParams.get('from');
   const toCityId = searchParams.get('to'); 
+  const fromCityName = searchParams.get('cityfrom');
+  const toCityName = searchParams.get('cityto'); 
   const dateFrom = useSelector((state) => state.date.dateFrom);
   const dateTo = useSelector((state) => state.date.dateTo);
   
@@ -39,13 +41,6 @@ function SearchResults() {
   const [activeLux, setActiveLux] = useState(false);
   const [activeWifi, setActiveWifi] = useState(false);
   const [activeExpress, setActiveExpress] = useState(false);
-
-  console.log("activeCoupe:", activeCoupe);
-  console.log("activeLux:", activeLux);
-  console.log("activePlaccart:", activePlaccart);
-  console.log("activeSeat:", activeSeat);
-  console.log("activeWifi:", activeWifi);
-  console.log("activeExpress:", activeExpress);
 
   const handleSliderChangeMin = (event) => {
     const value = parseInt(event.target.value, 10);
@@ -124,6 +119,8 @@ const handleShowTimeBack = () => {
 const searchParamsForTickets = {
   from_city_id: fromCityId,
   to_city_id: toCityId,
+  from_city_name: fromCityName,
+  to_city_name: toCityName,
   date_start: dateFrom || '',
   date_end: dateTo || '',
   have_second_class: activeCoupe, 

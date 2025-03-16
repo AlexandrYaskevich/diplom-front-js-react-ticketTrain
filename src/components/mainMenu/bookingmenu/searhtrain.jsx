@@ -68,7 +68,7 @@ export default function SearchTrain({ clickSearch, setClicksearch }) {
   const handleSearch = useCallback((e) => {
     e.preventDefault();
     setClicksearch(true);
-    const url = `/search?from=${selectedCityFromId}&to=${selectedCityToId}`;
+    const url = `/search?from=${selectedCityFromId}&to=${selectedCityToId}&cityfrom=${cityInputFrom}&cityto=${cityInputTo}`;
     navigate(url);
   }, [navigate, selectedCityFromId, selectedCityToId, setClicksearch]);
 
