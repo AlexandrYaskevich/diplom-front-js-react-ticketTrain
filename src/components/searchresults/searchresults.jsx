@@ -6,13 +6,21 @@ import DataTo from "../calendar/dataTo";
 import { useState } from "react";
 import LastTickets  from './lasttickets.jsx'
 import Tickets from "./resulttickets.jsx";
-/** import { useSearchParams } from 'react-router-dom'; */
+import { useSearchParams } from 'react-router-dom'; 
+
+import { useSelector } from 'react-redux';
+import { setDateTo, setDateFrom } from '../../redux/slice/dateSlice';
 
 
 function SearchResults() {
-  /**const [searchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
   const fromCityId = searchParams.get('from');
-  const toCityId = searchParams.get('to');  **/
+  const toCityId = searchParams.get('to'); 
+  const dateFrom = useSelector((state) => state.date.dateFrom);
+  const dateTo = useSelector((state) => state.date.dateTo);
+  
+  
+
   const [sliderValueMin, setSliderValueMin] = useState(1920); 
   const [sliderValueMax, setSliderValueMax] = useState(7000); 
   const [sliderTimeMinTo, setSliderTimeMinTo] = useState(0); 
@@ -32,6 +40,12 @@ function SearchResults() {
   const [activeWifi, setActiveWifi] = useState(false);
   const [activeExpress, setActiveExpress] = useState(false);
 
+  console.log("activeCoupe:", activeCoupe);
+  console.log("activeLux:", activeLux);
+  console.log("activePlaccart:", activePlaccart);
+  console.log("activeSeat:", activeSeat);
+  console.log("activeWifi:", activeWifi);
+  console.log("activeExpress:", activeExpress);
 
   const handleSliderChangeMin = (event) => {
     const value = parseInt(event.target.value, 10);
@@ -107,11 +121,11 @@ const handleShowTimeBack = () => {
   setActiveButtonBack(!activeButtonBack);
 }
 
-/**const searchParamsForTickets = {
+const searchParamsForTickets = {
   from_city_id: fromCityId,
   to_city_id: toCityId,
-  date_start: null,
-  date_end: null,
+  date_start: dateFrom || '',
+  date_end: dateTo || '',
   have_second_class: activeCoupe, 
   have_first_class: activeLux,
   have_third_class: activePlaccart,
@@ -123,7 +137,8 @@ const handleShowTimeBack = () => {
   start_departure_hour_from: sliderTimeMinTo,
   start_departure_hour_to: sliderTimeMaxTo,
 };
-console.log("searchParams:", searchParams.date_start)  **/ 
+
+
 
 
   return (
@@ -416,7 +431,7 @@ console.log("searchParams:", searchParams.date_start)  **/
             <LastTickets />
           </div>
           <div className="rightpart">
-            <Tickets />
+            <Tickets searchParamsForTickets={searchParamsForTickets}/>
           </div>
       </div>
     </div>
