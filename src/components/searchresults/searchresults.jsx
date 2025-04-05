@@ -9,7 +9,7 @@ import Tickets from "./resulttickets.jsx";
 import { useSearchParams } from 'react-router-dom'; 
 
 import { useSelector } from 'react-redux';
-import { setDateTo, setDateFrom } from '../../redux/slice/dateSlice';
+
 
 
 function SearchResults() {

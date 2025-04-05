@@ -70,7 +70,7 @@ export default function SearchTrain({ clickSearch, setClicksearch }) {
     setClicksearch(true);
     const url = `/search?from=${selectedCityFromId}&to=${selectedCityToId}&cityfrom=${cityInputFrom}&cityto=${cityInputTo}`;
     navigate(url);
-  }, [navigate, selectedCityFromId, selectedCityToId, setClicksearch]);
+  }, [navigate, selectedCityFromId, selectedCityToId, cityInputFrom, cityInputTo, setClicksearch]);
 
   const handleDateChangeFrom = useCallback(
     (date) => {
