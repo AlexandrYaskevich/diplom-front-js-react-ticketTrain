@@ -27,7 +27,9 @@ const Tickets = ({searchParamsForTickets}) => {
             <div className="ticketslist">
                 <div className="ticket">
                     <div className="nameTrainPart">
-                        <div className="trainicon"></div>
+                        <div className="circle">
+                            <div className="trainicon"></div>
+                        </div>
                         <div className="tarinName">Название поезда</div>
                         <div className="citys">города</div>
                     </div>

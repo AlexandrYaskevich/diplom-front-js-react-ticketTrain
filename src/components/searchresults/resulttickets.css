@@ -11,6 +11,17 @@
     width: 20%;
     height: 100%;
 }
+
+.circle {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    width: 100px; 
+    height: 100px;
+    border: 2px solid white; 
+    border-radius: 50%; 
+    background-color: #e4e0e9; 
+}
 .trainicon {
     background-image: url(./image/train.png);
     width: 70px;
