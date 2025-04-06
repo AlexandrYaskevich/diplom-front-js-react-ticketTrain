@@ -22,9 +22,9 @@ const Tickets = ({searchParamsForTickets}) => {
 
 useEffect(() => {
     setFilteredTickets(tickets.filter(ticket => {
-        const ticketDate = new Date(ticket.departure.datetime * 1000); // Используем timestamp
+        const ticketDate = new Date(ticket.departure.datetime * 1000); 
         const ticketPrice = ticket.min_price; 
-        const ticketDepartureTime = ticket.departure.datetime * 1000; // Время отправления в формате timestamp
+        const ticketDepartureTime = ticket.departure.datetime * 1000;
 
         const isWithinDateRange = ticketDate >= new Date(searchParamsForTickets.date_start) && ticketDate <= new Date(searchParamsForTickets.date_end);
         const isPriceValid = ticketPrice >= searchParamsForTickets.price_from && ticketPrice <= searchParamsForTickets.price_to;
@@ -83,16 +83,63 @@ useEffect(() => {
                     </div>
                     <div className="seatsTrainPart">
                         <div className="listclassticket">
-                            <div className="classseat">
-
-                                <div className="nameclass">класс</div>
-                                <div className="amountseats">{ticket.available_seats}</div>
-                                <div className="costseats">
-                                    <div className="fromcost">от</div>
-                                    <div className="amountcost">{ticket.min_price}</div>
-                                    <div className="iconrub"></div>
+                           
+                            {ticket.departure.have_second_class && (
+                             <div className="classseat">
+                                <div className="first-class-info">
+                                    <div className="nameclass">Купе</div>
+                                    <div className="amountseats">{ticket.available_seats_info.second}</div>
+                                    <div className="costseats">
+                                        <div className="fromcost">от</div>
+                                        <div className="amountcost">{ticket.departure.price_info.second.bottom_price}</div>
+                                        <div className="iconrub"></div>
+                                    </div>
                                 </div>
                             </div>
+                            )}
+
+                            {ticket.departure.have_first_class && (
+                             <div className="classseat">
+                                <div className="first-class-info">
+                                    <div className="nameclass">Люкс</div>
+                                    <div className="amountseats">{ticket.available_seats_info.first}</div>
+                                    <div className="costseats">
+                                        <div className="fromcost">от</div>
+                                        <div className="amountcost">{ticket.departure.price_info.first.bottom_price}</div>
+                                        <div className="iconrub"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            )}
+
+                            {ticket.departure.have_third_class && (
+                             <div className="classseat">
+                                <div className="first-class-info">
+                                    <div className="nameclass">Плацкарт</div>
+                                    <div className="amountseats">{ticket.available_seats_info.third}</div>
+                                    <div className="costseats">
+                                        <div className="fromcost">от</div>
+                                        <div className="amountcost">{ticket.departure.price_info.third.bottom_price}</div>
+                                        <div className="iconrub"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            )}
+
+                            {ticket.departure.have_fourth_class && (
+                             <div className="classseat">
+                                <div className="first-class-info">
+                                    <div className="nameclass">Сидячий</div>
+                                    <div className="amountseats">{ticket.available_seats_info.fourth}</div>
+                                    <div className="costseats">
+                                        <div className="fromcost">от</div>
+                                        <div className="amountcost">{ticket.departure.price_info.fourth.bottom_price}</div>
+                                        <div className="iconrub"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            )}
+                           
                         </div>
                         <div className="addandsearch">
                             <div className="listadditional"></div>
