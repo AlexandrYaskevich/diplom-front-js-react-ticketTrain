@@ -66,6 +66,9 @@
 }
 .alltime {
     margin-left: 30px;
+    display: flex;
+    font-size: 14px;
+    width: 50px;
 }
 .fromWay, .alltime {
     margin-right: 40px;
