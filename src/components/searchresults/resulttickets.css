@@ -21,6 +21,9 @@
     border: 2px solid white; 
     border-radius: 50%; 
     background-color: #e4e0e9; 
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
 }
 .trainicon {
     background-image: url(./image/train.png);
@@ -28,13 +31,129 @@
     height: 70px;
     background-position: center;
     background-repeat: no-repeat;
-
+}
+.fistCity{
+    display: flex;
+}
+.citys {
+  margin-right: 10px;
+}
+.wayName {
+    display: block; 
+    margin-left: 30px;
+    margin-top: 20px;
+}
+.tarinName {
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: 500;
 }
 .timeTrainPart {
     width: 50%;
     height: 100%;
+    border-right: 1px dashed #c1bec4;
+}
+.midlepart {
+    padding: 40px;
+    display: flex;
+}
+.cityfrom, .cityto {
+  font-size: 24px;
+}
+.namestationfrom, .namestationto {
+  color: #928f94;
+}
+.alltime {
+    margin-left: 30px;
+}
+.fromWay, .alltime {
+    margin-right: 40px;
+}
+.timefrom, .timeto{
+    font-size: 28px;
+    font-weight: 700;
+}
+.iconarrow{
+    background-image: url(./image/dir-right.png);
+    width: 100px;
+    height: 22px;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 .seatsTrainPart{
     width: 30%;
     height: 100%;
+}
+.listclassticket {
+  margin: 40px 20px;
+}
+.classseat{
+    display: flex;
+}
+.nameclass{
+    margin-top: 10px;
+    font-weight: 300;
+}
+.amountseats{
+    color: #f5bb47;
+    font-weight: 600;
+    font-size: 18px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 10px;
+}
+.costseats{
+    display: flex;
+}
+
+.fromcost{
+    color: #C4C4C4;
+    margin-right: 5px;
+    margin-top: 10px;
+}
+.amountcost {
+    font-weight: 600;
+    font-size: 30px;
+}
+.iconrub{
+    background-image: url(./image/sign.png);
+    width: 30px;
+    height: 28px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.addandsearch {
+    margin-top: 150px;
+}
+.listadditional {
+    display: flex;
+    margin-left: 180px;
+    width: 90px;
+    height: 28px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(./image/facilities.png);
+    margin-bottom: 20px;
+}
+.searchseats {
+    margin-left:18px;
+    width: 250px;
+    height: 50px;
+    background: #ffa800;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 28px;
+    text-align: center;
+    text-transform: uppercase;
+    color: white;
+    cursor: pointer;
+    &:hover {
+        background-color: #f5bb47;
+    }
+     &:active {
+        background-color: #FFFFFF;
+    }
 }

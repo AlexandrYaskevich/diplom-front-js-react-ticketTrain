@@ -10,7 +10,7 @@ const store = configureStore({
     subscribe: subscribeReducer,
     date: dateReducer,
     lastTickets: lastTicketsReducer,
-  },
+  }
 });
 
 export default store;
