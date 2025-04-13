@@ -54,13 +54,90 @@
 }
 
 .nameTrainCity{
-    margin-top: 20px;
+    border-right: 2px solid white;
+    height: 120px;
 }
-.trainName {
+.trainName, .timeTo, .timeFrom {
+    margin-top: 20px;
     font-weight: 500;
     font-size: 28px;
     text-transform: uppercase;
 }
-.city{
+.city, .cityFr, .cityT {
     text-transform: capitalize;
+}
+
+.timeAboutTickets {
+  display: flex;
+  border-right: 2px solid white;
+}
+.timeToStation, .timeFromStation {
+  width: 200px;
+}
+.timeFromStation{
+    margin-left: 20px;
+}
+.stationTo, .stationFrom {
+   color: #928f94;
+}
+.cityFr, .stationTo {
+    margin-left: 20px;
+}
+.iconRight {
+    background-image: url(./image/dir-right.png);
+}
+.iconRight, .iconTime {
+    width: 70px;
+    height: 70px;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-top: 20px;
+}
+
+.allTimeWay{
+    display: flex;
+}
+.iconTime{
+    background-image: url(./image/time-img.png);
+}
+.timeWay {
+    font-size: 20px; 
+    margin-top: 30px; 
+    width: 150px;
+}
+.amountSeat {
+    height: 70px;
+    width: 320px;
+    background-color: white;
+    font-weight: 600;
+    font-size: 28px;
+    margin: 30px 0px 0px 20px;
+}
+.adultPerson, .childPerson, .babyPerson {
+  width: 33%;
+  position: relative;
+  height: 100px;
+  background-color: #928f94;
+}
+.adult-input {
+    height: 40px;
+    width: 110px;  
+    border-radius: 5px;
+    border: 0.5px solid rgb(126, 126, 126);
+    padding-left: 110px;
+    padding-top: 5px;
+    margin: 10px 0px 0px 30px;
+}
+.labelAdult {
+    position: absolute;
+    left: 40px; 
+    top: 37%;
+    transform: translateY(-50%); 
+    pointer-events: none; 
+    color: black;
+}
+.limitAdult {
+    margin-left: 31px;  
+    margin-top: 20px;
+    font-size: 15px;
 }
