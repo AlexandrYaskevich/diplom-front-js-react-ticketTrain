@@ -1,10 +1,18 @@
 import "./resulttickets.css";
 import React, { useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import Seats from "./choisseats";
 
 const Tickets = ({searchParamsForTickets}) => {
     const [tickets, setTickets] = useState([]);
     const [filteredTickets, setFilteredTickets] = useState([]);
+    const [prevChoisTicket, setChoisTickets] = useState(false);
+    const [selectedTicket, setSelectedTicket] = useState(null);
+
+    const handlerChoisSeats = (ticket) => {
+        setChoisTickets(true);
+        setSelectedTicket(ticket);
+    };
 
     useEffect(() => {
         fetch(`https://students.netoservices.ru/fe-diplom/routes?from_city_id=${searchParamsForTickets.from_city_id}&to_city_id=${searchParamsForTickets.to_city_id}`)
@@ -35,7 +43,7 @@ useEffect(() => {
                              (searchParamsForTickets.have_fourth_class && ticket.have_fourth_class);
 
         const isWiFiAvailable = !searchParamsForTickets.have_wifi || ticket.have_wifi;
-        const isExpressAvailable = !searchParamsForTickets.have_express || ticket.is_express; // Используем is_express
+        const isExpressAvailable = !searchParamsForTickets.have_express || ticket.is_express; 
         const isDepartureTimeValid = ticketDepartureTime >= searchParamsForTickets.start_departure_hour_from && ticketDepartureTime <= searchParamsForTickets.start_departure_hour_to;
 
         return isWithinDateRange || isPriceValid || isClassValid || isWiFiAvailable || isExpressAvailable || isDepartureTimeValid;
@@ -45,6 +53,7 @@ useEffect(() => {
 }, [tickets, searchParamsForTickets]);
     return(
         <div>
+            {!prevChoisTicket &&
             <div className="ticketslist">
             {filteredTickets.map((ticket) => (   
                 <div className="ticket" key={uuidv4()}>
@@ -143,13 +152,18 @@ useEffect(() => {
                         </div>
                         <div className="addandsearch">
                             <div className="listadditional"></div>
-                            <button className="searchseats">Выбрать места</button>
+                            <button className="searchseats" onClick={() => handlerChoisSeats(ticket)}>Выбрать места</button>
                         </div>
                     </div>
                 </div>
             ))}
             </div>
-
+        }
+        {prevChoisTicket && 
+        <Seats 
+        setChoisTickets={setChoisTickets} 
+        selectedTicket={selectedTicket}
+        />}
 
         </div>
     );

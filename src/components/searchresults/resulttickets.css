@@ -4,6 +4,7 @@
     height: 351px;
     border: 1px solid #C4C4C4;
     box-shadow:  5px 5px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
 }
 
 .nameTrainPart {
@@ -91,6 +92,7 @@
 .listclassticket {
   margin: 40px 20px;
 }
+
 .first-class-info{
     display: flex;
 }
@@ -127,7 +129,7 @@
     background-repeat: no-repeat;
 }
 .addandsearch {
-    margin-top: 100px;
+    margin-top: 70px;
 }
 .listadditional {
     display: flex;
