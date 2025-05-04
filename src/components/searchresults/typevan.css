@@ -1,0 +1,71 @@
+.textLabel {
+    font-size: 26px;
+    font-weight: 600;
+    margin: 30px 0px 0px 20px;
+}
+.type {
+    display: flex;
+}
+.class {
+    width: 25%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.iconLux, .iconPlackart, .iconCupe, .iconSeat {
+    width: 100px;
+    height: 100px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.toggle {
+  display: none;
+}
+.iconCupe {
+    background-image: url(./image/second-class.png);
+}
+.cupe input:checked + .iconCupe {
+    background-image: url(./image/second-take.png);
+}
+.iconPlackart{
+    background-image: url(./image/third-class.png);
+}
+.plackart input:checked + .iconPlackart {
+    background-image: url(./image/third-take.png);
+}
+.iconLux {
+    background-image: url(./image/first-class.png);
+}
+.lux input:checked + .iconLux {
+    background-image: url(./image/first-take.png);
+}
+.iconSeat {
+    background-image: url(./image/fourth.png);
+}
+.seat input:checked + .iconSeat{
+    background-image: url(./image/fourth-take.png);
+}
+.nameText, .nameTextLux, .nameTextCupe {
+    font-size: 24px;
+    color: #928f94;
+    font-weight: 400;
+}
+.nameTextLux, .nameTextCupe {
+    margin-left: 23px;
+}
+.numbervan {
+    display: flex;
+    background-color: #f8ca6f;
+    height: 30px;
+    font-size: 16px;
+}
+.labelVan, .labelInfo {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.labelVan {
+  margin-left: 35px;
+}
+.labelInfo{
+    margin-left: auto; 
+    margin-right: 20px; 
+}

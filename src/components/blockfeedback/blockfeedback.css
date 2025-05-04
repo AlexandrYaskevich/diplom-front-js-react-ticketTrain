@@ -3,7 +3,12 @@
     width: 100vw;
     max-width: 1920px;
 }
-
+@media (min-width: 450px) and (max-width: 1400px) {
+    .blockfeedback {
+        height: 25%;
+        width: 100vw;
+    }
+}
 .headerfeedback{
    padding-top: 100px;
     margin-left: 7%;

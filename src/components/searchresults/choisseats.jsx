@@ -1,18 +1,49 @@
 import "./choisseats.css";
 import { useState } from 'react';
+import Typevan from "./typevan";
 
 const Seats = ({selectedTicket, setChoisTickets}) => { 
-    const [adults, setAdults] = useState(0); 
-    const [limitAdult] = useState(5);
-    const remainingAdults = limitAdult - adults;
+    const [amountperson, setAmountPerson] = useState({
+        adults: 0,
+        childs: 0,
+        baby: 0,
+    });
+    const limitAdult = 5;
+    const limitChild = 3;
+    const remainingAdults = limitAdult - amountperson.adults;
+    const remainingChilds = limitChild - amountperson.childs;
+    const remainingBaby = limitChild - amountperson.baby;
+    const updateAdults = (newAdults) => {
+        setAmountPerson(prev => ({ ...prev, adults: newAdults }));
+      };
+    const updateChilds = (newChilds) => {
+        setAmountPerson(prev => ({ ...prev, childs: newChilds }));
+    };
+    const updateBaby = (newBaby) => {
+        setAmountPerson(prev => ({ ...prev, baby: newBaby }));
+    };
 
      const handleBackButtonClick = () => {
         setChoisTickets(false);
     };
     const handleChangeAdult = (event) => {
-        const value = Math.max(0, Math.min(5, event.target.value)); 
-        setAdults(value); 
+        const value = Number(event.target.value);
+        const newValue = Math.max(0, Math.min(limitAdult, value)); 
+        updateAdults(newValue);
     };
+
+    const handleChangeChild = (event) => {
+        const value = Number(event.target.value);
+        const newValue = Math.max(0, Math.min(limitChild, value)); 
+        updateChilds(newValue);
+    };
+
+    const handleChangeBaby = (event) => {
+        const value = Number(event.target.value);
+        const newValue = Math.max(0, Math.min(limitChild, value)); 
+        updateBaby(newValue);
+    };
+
 
     return (
     <div>
@@ -69,20 +100,45 @@ const Seats = ({selectedTicket, setChoisTickets}) => {
                             min="0" 
                             max="5" 
                             className="adult-input" 
-                            value={adults} 
+                            value={amountperson.adults} 
                             onChange={handleChangeAdult}
                         />
-                        <span className="labelAdult">Взрослых &mdash;</span>
+                        <span className="label">Взрослых &mdash;</span>
                         </div>
                     <div className="limitAdult">Можно добавить еще {remainingAdults} пассажиров</div>
                 </div>
                 <div className="childPerson">
-
+                <div className="inputBlockAdult">
+                        <input 
+                            type="number" 
+                            min="0" 
+                            max="3" 
+                            className="childs-input" 
+                            value={amountperson.childs} 
+                            onChange={handleChangeChild}
+                        />
+                        <span className="label">Детских &mdash;</span>
+                        </div>
+                    <div className="limitAdult">Можно добавить еще {remainingChilds} билетов для детей до 10 лет. Свое место в вагоне, как у взрослых, но дешевле в среднем на 50-65%</div>
                 </div>
                 <div className="babyPerson">
-
+                
+                    <div className="inputBlockBaby">
+                        <input 
+                            type="number" 
+                            min="0" 
+                            max="3" 
+                            className="baby-input" 
+                            value={amountperson.baby} 
+                            onChange={handleChangeBaby}
+                        />
+                        <span className="label">Детских "без места" &mdash;</span>
+                        </div>
+                    <div className="limitAdult">Можно добавить еще {remainingBaby} билетов для младенцев.</div>
+               
                 </div>
             </div>
+            <Typevan selectedTicket={selectedTicket}/>
 
         </div>
     </div>

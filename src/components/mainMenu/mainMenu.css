@@ -8,6 +8,12 @@
     display: inline-block;
 }
 
+@media (min-width: 450px) and (max-width: 1400px) {
+    .mainMenu {
+        height: 25%;
+        width: 100vw;
+    }
+}
 .mainMenu_second {
     height: 600px;
     background-image: url("./image/main-search.png");
